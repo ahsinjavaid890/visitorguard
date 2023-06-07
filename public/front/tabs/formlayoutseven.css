@@ -1,0 +1,92 @@
+.date-wrapper {
+   height: 40px;
+   border-radius: 4px;
+   position: relative;
+   -webkit-transition: all 0.2s linear;
+   width: 100%;
+   overflow: hidden;
+   display: flex;
+   display: -webkit-flex;
+   align-items: center;
+   -webkit-align-items: center;
+   color: #566266;
+   background-color: white;
+   border: #ddd 2px solid;
+   }
+   .date-wrapper input {
+   width: 32%;
+   border: 0 none;
+   text-align: center;
+   box-shadow: none;
+   border-radius: 4px;
+   padding: 15px 15px;
+   display: block;
+   max-height: 50px;
+   background-color: white;
+   }
+   .question-answer input{
+   border: 0px !important;
+   }
+   .numeric{
+   border: 0px !important;
+   }
+   .date_of_birth div .nice-select{
+   display: none !important;
+   }
+   .year-holder{
+   display: block !important;
+   }
+   .label-style{
+      font-weight: bold;
+        font-size: 16px;
+        color: #4F596A;
+        margin-bottom: 0rem !important;
+    }
+    .inputs-style{
+      border: #ddd 2px solid;
+      box-shadow: none;
+      display: block;
+      height: 40px;
+      padding: 6px 12px !important;
+      font-size: 14px;
+      line-height: 1.42857143;
+      background-color: #fff;
+      background-image: none;
+    }
+    .box-style{
+      padding: 3em;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.22);
+    border-radius: 0.25rem;
+    border: 1px solid rgba(34,36,38,.22);
+    width: 50%;
+    margin-left: 25%;
+    }
+    .get_qout{
+      background: #1BBC9B;
+      color: #FFF;
+      font-size: 18px;
+      line-height: 1.3333333;
+      border-radius: 6px !important;
+      padding: 10px 60px;
+    }
+    .get_qout:hover{
+      background: #515c68;
+      color:white
+    }
+    .get_qout:hover i{
+      color: rgb(73, 134, 73);
+
+    }
+    @media (max-width:468px) and (min-width: 292px){
+      .box-style{
+         width: 100%;
+         margin-left: 0%;
+      }
+    }
+
+    form .row {
+       margin-bottom: 0px !important; 
+  }
+  .border-style{
+    border-radius: 2px !important;
+  }
