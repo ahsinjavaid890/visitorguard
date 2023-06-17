@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 class Cmf
 {
+    public static function getsite()
+    {
+        return 'visitorguard';
+    }
     public static function sendimagetodirectory($imagename)
     {
         $file = $imagename;

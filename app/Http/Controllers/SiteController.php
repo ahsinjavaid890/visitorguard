@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Helpers\Cmf;
 use Illuminate\Http\Request;
 use App\Models\companies;
 use App\Models\jobs;
@@ -295,13 +295,16 @@ class SiteController extends Controller
     }
     public function productdetail($id)
     {
-        $data = wp_dh_products::where('url' , $id)->first();
+        $data = wp_dh_products::where('url' , $id)->where('website' , Cmf::getsite())->first();
         if($data)
         {
             $fields = unserialize($data->pro_fields);
             $sortfields = unserialize($data->pro_sort);
-            $wp_dh_insurance_plans = wp_dh_insurance_plans::select('wp_dh_insurance_plans.id')->where('product' , $data->pro_id)->get();
-            $sum_insured = DB::select("SELECT `sum_insured` FROM `wp_dh_insurance_plans_rates` WHERE `plan_id` IN (SELECT `id` FROM `wp_dh_insurance_plans` WHERE `product`='$data->pro_id') GROUP BY `sum_insured` ORDER BY CAST(`sum_insured` AS DECIMAL)");
+            $productfordata = wp_dh_products::where('url' , $id)->where('website' , 'lifeadvice')->first();
+
+
+            $wp_dh_insurance_plans = wp_dh_insurance_plans::select('wp_dh_insurance_plans.id')->where('product' , $productfordata->pro_id)->get();
+            $sum_insured = DB::select("SELECT `sum_insured` FROM `wp_dh_insurance_plans_rates` WHERE `plan_id` IN (SELECT `id` FROM `wp_dh_insurance_plans` WHERE `product`='$productfordata->pro_id') GROUP BY `sum_insured` ORDER BY CAST(`sum_insured` AS DECIMAL)");
             return view('frontend.formone.index')->with(array('data'=>$data,'orderdata'=>$sortfields,'fields'=>$fields,'sum_insured'=>$sum_insured));
         }
         else
