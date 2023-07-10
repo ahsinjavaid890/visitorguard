@@ -66,6 +66,9 @@
                            <li><a class="dropdown-item" href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
                         </ul>
                      </li>
+                     <li class="nav-item">
+                        <a href="{{ url('login') }}">Login</a>
+                     </li>
                   </ul>
                </div>
             </nav>

@@ -510,7 +510,7 @@ class SiteController extends Controller
         {
             return redirect()->route('user.dashboard');   
         }else{
-            return view('auth.login');
+            return view('auth.template3.login');
         }
         
     }
