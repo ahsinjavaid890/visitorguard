@@ -510,7 +510,18 @@ class SiteController extends Controller
         {
             return redirect()->route('user.dashboard');   
         }else{
-            return view('auth.template3.login');
+             $temp = DB::table('site_settings')->where('smallname', 'visitorguard')->first()->userpanel_temp;
+
+            if ($temp == "1") {
+
+                return view('auth.template1.login');
+            } elseif ($temp == "2") {
+
+                return view('auth.template2.login');
+            } elseif ($temp == "3") {
+
+                return view('auth.template3.login');
+            }
         }
         
     }
