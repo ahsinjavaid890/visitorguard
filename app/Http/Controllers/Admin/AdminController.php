@@ -25,8 +25,8 @@ use App\Models\plan_benifits_categories;
 use App\Models\sales;
 use Illuminate\Support\Facades\Hash;
 use Mail;
-use Auth;
-use DB;
+use  Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     public function dashboard(){
@@ -182,7 +182,7 @@ class AdminController extends Controller
     }
     public function messages()
     {   
-        $data = DB::table('contactus_messages')->orderby('created_at' , 'desc')->paginate(10);
+        $data = DB::table('contactus_messages')->where('website','visitorguard')->orderby('created_at' , 'desc')->paginate(10);
         return view('admin/contact/messages')->with(array('data'=>$data));
     }
     public function viewmessage($id)
@@ -198,7 +198,7 @@ class AdminController extends Controller
 
     public function allproducts()
     {
-        $data = DB::table('wp_dh_products')->where('status' , 1)->orderby('pro_name' , 'desc')->get();
+        $data = DB::table('wp_dh_products')->where('status' , 1)->where('website','visitorguard')->orderby('pro_name' , 'desc')->get();
         return view('admin.products.index')->with(array('data'=>$data));
     }
     public function allplans()
@@ -704,18 +704,20 @@ class AdminController extends Controller
     }
     public function allsale()
     {
-        $data = DB::table('sales')->orderby('purchase_date' , 'DESC')->paginate(10);
+        $data = DB::table('sales')->where('website','visitorguard')->orderby('id' , 'DESC')->paginate(10);
         return view('admin.sales.allsale')->with(array('data'=>$data));
     }
     public function editsale($id)
     {
-        $data = DB::table('sales')->where('sales_id' , $id)->first();
-        return view('admin.sales.editsale')->with(array('data'=>$data));
+        $data = DB::table('sales')->where('id', $id)->first();
+        $company = DB::table('wp_dh_companies')->where('comp_id', $data->comp_id)->first();
+        return view('admin.sales.editsale')->with(array('data'=>$data,'company' => $company));
     }
     public function editsales(Request $request)
     {
-        $update = array('fname' => $request->fname, 'lname' => $request->lname, 'email' => $request->email, 'phone' => $request->phone, 'dob' => $request->dob, 'address' => $request->address, 'address_2' => $request->address_2, 'province' => $request->province, 'city' => $request->city, 'postcode' => $request->postcode, 'country' => $request->country, 'home_address' => $request->home_address, 'home_address_2' => $request->home_address_2, 'home_province' => $request->home_province, 'home_city' => $request->home_city, 'home_zip' => $request->home_zip, 'home_country' => $request->home_country);
-        DB::table('sales')->where('sales_id' , $request->id)->update($update);
+        $update = array('sponsersname' => $request->sponsersname, 'sponsersemail' => $request->sponsersemail, 'email' => $request->email, 'phonenumber' => $request->phonenumber, 'address' => $request->address, 'appartment' => $request->appartment, 'postalcode' => $request->postalcode, 'country' => $request->country, 'province' => $request->province,  'city' => $request->city);
+
+        DB::table('sales')->where('id', $request->id)->update($update);
         return redirect()->back()->with('message', 'Sales Updated Successfully');
     }
 
@@ -734,10 +736,13 @@ class AdminController extends Controller
 
     public function viewsale($id)
     {
-        $data = DB::table('sales')->where('sales_id' , $id)->first();
-        $insurance_plan = wp_dh_insurance_plans::where('id'  ,$data->policy_id)->first();
-        $company = wp_dh_companies::where('comp_id' , $insurance_plan->insurance_company)->first();
-        return view('admin.sales.viewsale')->with(array('data'=>$data,'insurance_plan'=>$insurance_plan,'company'=>$company));
+
+        DB::table('sales')->where('id' , $id)->update(array('newstatus' =>'old'));
+        $data = DB::table('sales')->where('id' , $id)->first();
+        $company = DB::table('wp_dh_companies')->where('comp_id' , $data->comp_id)->first();
+        return view('admin.sales.viewsale')->with(array('data'=>$data,'company'=>$company));
+
+
     }
     public function allcompanies()
     {
@@ -749,7 +754,7 @@ class AdminController extends Controller
 
     public function blogcategories()
     {
-        $data = DB::table('blogcategories')->get();
+        $data = DB::table('blogcategories')->where('website','visitorguard')->get();
         return view('admin.blogs.categories')->with(array('data'=>$data));
     }
     public function deleteblogcategory($id)
@@ -760,8 +765,8 @@ class AdminController extends Controller
     }
     public function allblogs()
     {
-        $data = DB::table('blogs')->get();
-        $categories = blogcategories::all();
+        $data = DB::table('blogs')->where('website','visitorguard')->get();
+        $categories = blogcategories::where('website','visitorguard')->get();
         return view('admin.blogs.addblog')->with(array('data'=>$data,'categories'=>$categories));
     }
     public function addnewblogcategory(Request $request)
@@ -770,6 +775,7 @@ class AdminController extends Controller
         $saveblog->name = $request->name;
         $saveblog->status = 1;
         $saveblog->url = Cmf::shorten_url($request->name);
+        $saveblog->website = 'visitorguard';
         $saveblog->save();
         return redirect()->back()->with('message', 'Blog Category Successfully Inserted');
         
@@ -791,6 +797,7 @@ class AdminController extends Controller
         $add->url = Cmf::shorten_url($request->title);
         $add->content = $request->content;
         $add->image = Cmf::sendimagetodirectory($request->image);
+        $add->website = 'visitorguard';
         $add->save();
         return redirect()->back()->with('message', 'Blog Added Successfully');        
     }

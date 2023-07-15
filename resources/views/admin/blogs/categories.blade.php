@@ -56,7 +56,7 @@
                                     <div class="badge badge-danger">Not Published</div>
                                     @endif
                                 </td>
-                                <td>{{ DB::table('blogs')->where('category_id' , $r->id)->count() }}</td>
+                                <td>{{ DB::table('blogs')->where('website','visitorguard')->where('category_id' , $r->id)->count() }}</td>
                                 <td nowrap="">
                                     <a data-toggle="modal" data-target="#categoryedit{{ $r->id }}" href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Edit details"> <i class="la la-edit"></i> </a>
                                     <a data-toggle="modal" data-target="#deleteModal{{ $r->id }}" href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete"> <i class="la la-trash"></i> </a>

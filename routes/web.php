@@ -181,7 +181,7 @@ Route::name('admin.')->prefix('admin')->namespace('App\Http\Controllers\Admin')-
         Route::post('/updatblogcategory','AdminController@updatblogcategory');
         Route::get('/deleteblogcategory/{id}','AdminController@deleteblogcategory');
         Route::get('/allblogs','AdminController@allblogs');
-        Route::post('/addnewfaq','AdminController@addnewfaq');
+        Route::post('/createblog','AdminController@createblog');
         Route::post('/updateblog','AdminController@updateblog');
         Route::get('/deleteblog/{id}','AdminController@deleteblog');
     });

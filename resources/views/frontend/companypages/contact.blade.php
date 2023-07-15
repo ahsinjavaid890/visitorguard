@@ -46,19 +46,30 @@
             <div id="result"></div>
             <h3>Send a Message</h3>
             <h4>Please fill the form below and submit... We will contact you.</h4>
-            <form method="post" action="process_contact.php" id="contact-form">
+            @if(session()->has('message'))
+            <h1 style="color: #18AB8D" class="mb-5 mt-3 text-left"><span class="title_h3">
+                <span class="blue_text">{{ session()->get('message') }}</span>
+            </span></h1>
+            @endif 
+            <form method="post" action="{{url('contactus')}}" id="contact-form">
+               @csrf
                <div class="row">
-                  <p class="col-6"><label class="">Your Name *</label><br><span><input type="text" name="fname"></span></p>
-                  <p class="col-6"><label class="">Your Last Name</label><br><span><input type="text" name="lname"></span></p>
-                  <p class="col-6"><label class="">Your Email *</label><br><span><input type="text" name="email"></span></p>
-                  <p class="col-6"><label class="">Your Contact No *</label><br><span><input type="text" name="mobile"></span></p>
-                  <p class="col-12"><label class="">Your Subject</label><br><span><input type="text" name="subject"></span></p>
-                  <p class="col-12"><label class="">Your Message</label><br><span><textarea name="message"  rows="2"></textarea></span></p>
+                  <p class="col-6"><label class="">Your Name *</label><br><span><input type="text" required name="fname"></span></p>
+                  <p class="col-6"><label class="">Your Last Name</label><br><span><input required type="text" name="lname"></span></p>
+                  <p class="col-6"><label class="">Your Email *</label><br><span><input type="text" required name="email"></span></p>
+                  <p class="col-6"><label class="">Your Contact No *</label><br><span><input required type="text" name="mobile"></span></p>
+                  <p class="col-12"><label class="">Your Subject</label><br><span><input required type="text" name="subject"></span></p>
+                  <p class="col-12"><label class="">Your Message</label><br><span><textarea required name="description"  rows="2"></textarea></span></p>
                   <p class="col-12 text-right">
                      <button type="submit" class="btn btn-lg" name="contact-submit"><i class="fa fa-send-o"></i></button>
                   </p>
+
+
+                  
                </div>
             </form>
+
+            
          </div>
       </div>
    </div>

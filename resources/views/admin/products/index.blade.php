@@ -22,7 +22,7 @@
                     <table id="example" class="table table-separate table-head-custom table-checkable" style="width:100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Product Name</th>
                                 <th>Supervisa</th>
                                 <th>Created By</th>
@@ -33,7 +33,7 @@
                         <tbody>
                             @foreach($data as $r)
                                 <tr>
-                                    <td>{{ $r->pro_id }}</td>
+                                    {{-- <td>{{ $r->pro_id }}</td> --}}
                                     
                                     <td>
                                         {{ $r->pro_name }}

@@ -15,14 +15,14 @@ class SettingsController extends Controller
     }
     public function appearance()
     {   
-        $settings = Settings::first();
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
         return view('admin.website.settings',compact("settings"));
     }
     public function appearance_update(Request $request)
     {
 
         $input = $request->all();
-        $settings = Settings::first();
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
         if(!empty($input['website_name']))
         $settings->site_name = $input['website_name'];
         if(!empty($input['site_motto']))
@@ -92,7 +92,7 @@ class SettingsController extends Controller
 
     public function updatelogos(Request $request)
     {
-        $settings = Settings::first();
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
         if(!empty($request->header_logo))
         {
             $settings->header_logo = Cmf::sendimagetodirectory($request->header_logo);

@@ -22,11 +22,11 @@ use App\Models\compare_plans;
 use App\Models\newsletter; 
 use App\Models\temproaryquote; 
 use Illuminate\Support\Facades\Hash;
-use DB;
-use Mail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Redirect;
 use Session;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 class SiteController extends Controller
 {
     public function index()
@@ -445,16 +445,17 @@ class SiteController extends Controller
     } 
     public function contacts(Request $request)
     {
-        $this->validate($request, [
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required',
-            'mobile' => 'required',
-            'subject' => 'required',
-            'description' => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'fname' => 'required',
+        //     'lname' => 'required',
+        //     'email' => 'required',
+        //     'mobile' => 'required',
+        //     'subject' => 'required',
+        //     'description' => 'required',
+        // ]);
 
         $insert = new contactus_messages();
+        $insert->website = 'visitorguard';
         $insert->fname = $request->fname;
         $insert->lname = $request->lname;
         $insert->email = $request->email;

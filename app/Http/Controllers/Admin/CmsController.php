@@ -129,7 +129,7 @@ class CmsController extends Controller
     }
     public function faqcategories()
     {
-        $data = frequesntlyaskquest_categories::all();
+        $data = frequesntlyaskquest_categories::where('website','visitorguard')->get();
         return view('admin.faq.categories')->with(array('data'=>$data));
     }
     public function addnewfaqcategory(Request $request)
@@ -137,6 +137,7 @@ class CmsController extends Controller
         $add = new frequesntlyaskquest_categories();
         $add->name = $request->name;
         $add->icon = Cmf::sendimagetodirectory($request->icon);
+        $add->website = 'visitorguard';
         $add->status = 'Published';
         $add->save();
         return redirect()->back()->with('message', 'Category Added Successfully');
@@ -163,8 +164,8 @@ class CmsController extends Controller
 
     public function allfaq()
     {
-        $data = frequesntlyaskquestions::orderby('category_id' , 'desc')->paginate(15);
-        $categories = frequesntlyaskquest_categories::all();
+        $data = frequesntlyaskquestions::where('website','visitorguard')->orderby('category_id' , 'desc')->paginate(15);
+        $categories = frequesntlyaskquest_categories::where('website','visitorguard')->get();
         return view('admin.faq.allfaq')->with(array('data'=>$data,'categories'=>$categories));
     }
     public function addnewfaq(Request $request)
@@ -173,6 +174,7 @@ class CmsController extends Controller
         $add->category_id = $request->category_id;
         $add->question = $request->question;
         $add->answer = $request->answer;
+        $add->website = 'visitorguard';
         $add->save();
         return redirect()->back()->with('message', 'FAQ Added Successfully');
     }

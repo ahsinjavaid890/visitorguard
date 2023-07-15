@@ -5,7 +5,7 @@
 <head>
     <base href="../../../../">
     <meta charset="utf-8" />
-    <title>Admin | Life Advice</title>
+    <title>Agent Login | Life Advice</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -51,7 +51,7 @@
                     <!--begin::Login Sign in form-->
                     <div class="login-signin">
                         <div class="mb-20">
-                            <h3 class="font-weight-normal">Admin Login</h3>
+                            <h3 class="font-weight-normal">Agent Login</h3>
                             <p class="adminlogintext">Enter your details to login to your account</p>
                         </div>
                         @if(Session::get('error'))

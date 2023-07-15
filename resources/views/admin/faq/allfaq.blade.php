@@ -50,7 +50,7 @@
                                     {{ $r->question }}
                                 </td>
                                 <td>
-                                    {{ DB::table('frequesntlyaskquest_categories')->where('id' , $r->category_id)->first()->name }}
+                                    {{ DB::table('frequesntlyaskquest_categories')->where('id',$r->category_id)->first()->name }}
                                 </td>
                                 <td>
                                     {{ $r->order }}
