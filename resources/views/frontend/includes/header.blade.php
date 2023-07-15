@@ -19,6 +19,26 @@
                         <a class="dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" data-toggle="dropdown"> Travel Insurance </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                            <li>
+                              <a class="dropdown-item" href="{{ url('travel-insurance') }}">Travel Insurance</a>
+                           </li>
+                           <li>
+                              <a class="dropdown-item" href="{{ url('super-visa-insurance') }}">Super Visa Insurance</a>
+                           </li>
+                           <li>
+                              <a class="dropdown-item" href="{{ url('visitor-insurance') }}">Visitor Insurance</a>
+                           </li>
+                           <li>
+                              <a class="dropdown-item" href="{{ url('student-insurance') }}">Student Insurance</a>
+                           </li>
+                           
+                        </ul>
+                     </li>
+
+
+                     <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" data-toggle="dropdown"> Travel Insurance </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <li>
                               <a class="dropdown-item" href="{{ url('product/travel-insurance') }}">Travel Insurance</a>
                            </li>
                            <li>
@@ -40,6 +60,9 @@
                            </li>
                         </ul>
                      </li>
+
+
+
                      <li class="nav-item dropdown">
                         <a class="dropdown-toggle" href="javascript:void(0)" id="navbarDropdown3" data-toggle="dropdown"> Insurance </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">

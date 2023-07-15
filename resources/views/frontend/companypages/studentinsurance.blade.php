@@ -1,6 +1,30 @@
 @extends('frontend.layouts.main')
 @include('frontend.companypages.includes.mettatittle')
 @section('content')
+
+
+
+<link rel="stylesheet" href="{{ asset('public/front/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/animate.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/boxicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/flaticon.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css">
+<link rel="stylesheet" href="{{ asset('public/front/css/meanmenu.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/odometer.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/time.css') }}">
+<link rel="stylesheet" href="{{ asset('public/front/css/responsive.css') }}">
+
+
+
+
+
+
+
 @include('frontend.companypages.includes.mainstudent')
 @php
    $useragent=$_SERVER['HTTP_USER_AGENT'];
@@ -14,6 +38,19 @@
       $mobile = 'no';
    @endphp
 @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/tabs/pricelayoutthree.css') }}">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
