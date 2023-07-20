@@ -50,6 +50,17 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     }
+
+    .dropdown-item {
+        color: white!important;
+    }
+    .headlogo .navbar-dark a{
+        color:black;
+    }
+    .headlogo{
+        top: -4px;
+    }
+    
 </style>
 <div class="covid p-4">
     <div class="container-homepage">

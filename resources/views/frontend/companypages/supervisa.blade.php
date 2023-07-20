@@ -1,4 +1,4 @@
-@extends('frontend.layouts.maintwo')
+@extends('frontend.layouts.main')
 @include('frontend.companypages.includes.mettatittle')
 @section('content')
 
@@ -20,6 +20,20 @@
 
 
 
+
+
+<style>
+	.dropdown-item {
+        color: white!important;
+    }
+    .headlogo .navbar-dark a{
+        color:black;
+    }
+    .headlogo{
+        top: -4px;
+    }
+	
+</style>
 
 
 

@@ -19,7 +19,18 @@
 <link rel="stylesheet" href="{{ asset('public/front/css/time.css') }}">
 <link rel="stylesheet" href="{{ asset('public/front/css/responsive.css') }}">
 
-
+<style>
+	.dropdown-item {
+        color: white!important;
+    }
+    .headlogo .navbar-dark a{
+        color:black;
+    }
+    .headlogo{
+        top: -4px;
+    }
+	
+</style>
 
 
 @include('frontend.companypages.includes.mainvisitor')
