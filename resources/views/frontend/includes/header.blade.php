@@ -90,7 +90,26 @@
                         </ul>
                      </li>
                      <li class="nav-item">
-                        <a href="{{ url('login') }}">Login</a>
+                        @if(Auth::check()) 
+                                    @if(Auth::user()->user_type == 'agent')
+                                        <li class="nav-item">
+                                            <a href="{{ url('admin/dashboard')}}">
+                                            Agent dashboard 
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a href="{{ url('profile')}}">
+                                                My Account
+                                            </a>
+                                        </li>
+                                    @endif
+                                @else
+                                <li class="nav-item">
+                                 <a href="{{ url('login') }}">Login</a>
+                                </li>
+                                @endif
+                       
                      </li>
                   </ul>
                </div>

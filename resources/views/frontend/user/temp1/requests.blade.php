@@ -417,6 +417,10 @@
   padding: 2rem;
   border-bottom: 1px solid #ddd;
 }
+
+.headlogo .navbar-dark a{
+      color:black;
+   }
 </style>
 <div class="container mb-5" style="margin-top: 8rem;">
    <div class="row mt-5">

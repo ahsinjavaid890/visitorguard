@@ -20,6 +20,9 @@
    .col-md-9 .card{
       border-left: 5px solid #2b3481;
    }
+   .headlogo .navbar-dark a{
+      color:black;
+   }
    .heading-2{
       color: #2b3481!important;
        font-weight: 800;
@@ -152,15 +155,58 @@
    .purchaseconfermationdownload i{
       margin-right: 10px;
    }
+   .nav-tabs {
+            border-bottom: none
+        }
+   a{
+            color: black;
+            }
 </style>
-<div class="container mb-5" style="margin-top: 8rem;">
-   <div class="row mt-5">
-      <div class="col-md-12">
-         <div class="heading-wrapper">
-            <h1 class="heading-2 text-md-center">Policy Detail</h1>
-         </div>
-      </div>
+
+
+<div class="container" >
+   <div class="row" style="margin-top: 100px">
+       <div class="col-md-12">
+           <div class="heading-wrapper">
+               <h3  style="font-size: 35px;margin-bottom:10px" class="heading-2 text-md-start">Policy Detail</h3>
+           </div>
+       </div>
+
    </div>
+   <ul class="nav nav-tabs justify-content-start">
+       <li class="nav-item">
+           <a class="nav-link " href="{{ url('profile') }}">Purchased Policies</a>
+       </li>
+       <li class="nav-item">
+           <a class="nav-link activenav" href="{{ url('requests') }}">Requests</a>
+       </li>
+       <li class="nav-item">
+           <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign
+               Out</a>
+       </li>
+
+       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+           {{ csrf_field() }}
+       </form>
+       <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button"
+               aria-haspopup="true" aria-expanded="false">Helpful Links</a>
+           <div class="dropdown-menu">
+               <a class="dropdown-item helpfulllinks" href="{{ url('faq') }}"> Frequently Asked Questions</a>
+               <a class="dropdown-item helpfulllinks" href="{{ url('privacypolicy') }}">Privacy Policy </a>
+               <a class="dropdown-item helpfulllinks" href="{{ url('contactus') }}">Contact Us</a>
+               <a class="dropdown-item helpfulllinks" href="{{ url('claim') }}">Claim Form</a>
+           </div>
+       </li>
+   </ul>
+
+
+</div>
+
+
+
+<div class="container mb-5">
    @if(session()->has('message'))
    <div class="alert alert-success alert-dismissible">
        <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -173,7 +219,7 @@
       </div>
    </div>
    <div class="row mt-5">
-      <div class="col-md-9">
+      <div class="col-md-12">
          <div class="card shadow profile_cards">
             <div class="card-body">
                <div class="row">
@@ -266,31 +312,7 @@
                   </div>
                </div>
       </div>
-      <div class="col-md-3">
-         <div class="card">
-            <div class="card-body p-0">
-               <ul class="nav nav-tabs" role="tablist" style="display: block;border-bottom: unset;">
-                  <li class="nav-item">
-                     <a class="nav-link activenav" href="{{ url('profile')}}">Purchased Policies</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{ url('requests')}}">Requests</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{ url('logout')}}">Sign Out</a>
-                  </li>
-               </ul>
-               <div class="divider"></div>
-               <h3 class="hthreeforextralinks">Helpfull Links</h3>
-               <ul>
-                  <li><a href="{{ url('faq') }}" class="helpfulllinks"> Frequently Asked Questions </a></li>
-                  <li><a href="{{ url('privacypolicy') }}" class="helpfulllinks"> Privacy Policy </a></li>
-                  <li><a href="{{ url('contactus') }}" class="helpfulllinks"> Contact Us </a></li>
-                  <li><a href="{{ url('claim') }}" class="helpfulllinks"> Claim Form </a></li>
-               </ul>
-            </div>
-         </div>
-      </div>
+      
    </div>
 </div>
 

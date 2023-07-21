@@ -103,6 +103,9 @@
     font-weight: 700;
     margin-bottom: 1rem!important;
    }
+   .headlogo .navbar-dark a{
+      color:black;
+   }
 </style>
 <div class="container mb-5" style="margin-top: 8rem;">
    <div class="row mt-5">
