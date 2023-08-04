@@ -18,15 +18,15 @@ class IsAdmin
     {
         if(Auth::check())
         {
-            if(Auth::user()->type == 'admin')
+            if(Auth::user()->type == 'agent')
             {
                 return $next($request);
             }else{
                 Auth::logout();
-                return redirect()->route('admin.login')->with('success','You Dont Have Access of Admin');
+                return redirect()->route('agentlogin')->with('success','You Dont Have Access of Admin');
             }
         }else{
-            return redirect()->route('admin.login')->with('success','Admin has been logged out!');
+            return redirect()->route('agentlogin')->with('success','Admin has been logged out!');
         }
         
     }

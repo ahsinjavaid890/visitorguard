@@ -160,10 +160,11 @@ Route::get('/carrier-profile/reviews', function () {
 
 
 
+Route::get('agentlogin',[LoginController::class, 'agentlogin'])->name('agentlogin');
 
 // Hiring Maps
 Route::name('admin.')->prefix('admin')->group(function(){
-    Route::get('/login',[LoginController::class, 'login'])->name('login');
+    // Route::get('/login',[LoginController::class, 'login'])->name('login');
     Route::post('/login-process',[LoginController::class, 'login_process'])->name('login_process');
     Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 });

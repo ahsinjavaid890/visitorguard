@@ -11,6 +11,15 @@ class LoginController extends Controller
 {
     //
 
+    public function agentlogin()
+    { if(Auth::check())
+        {
+            return redirect()->route('admin.dashboard');
+        }else{
+            return view('admin.auth.login');
+        }
+    }
+
     public function login(){
         if(Auth::check())
         {
@@ -23,11 +32,22 @@ class LoginController extends Controller
     public function login_process(Request $request)
     {
         $data = $request->all();
+        // echo"<pre>";
+        // print_r($data);
+        // die;
         $this->validator($request);
         if(auth()->attempt(['email'=>$data['email'],'password'=>$data['password']],$request->filled('remember'))){
-            if(Auth::user()->type == 'admin')
+            if(Auth::user()->type == 'agent')
             {
-                return redirect()->route('admin.dashboard')->with('success','You are Login as Admin!');
+
+                if(Auth::user()->website == 'visitorguard')
+                {
+                    return redirect()->route('admin.dashboard')->with('success','You are Login as Admin!');   
+                }else{
+                    Auth::logout();
+                    return back()->with('error','You Have No Access for this Portal');
+                }
+                
             }else{
                 Auth::logout();
                 return back()->with('error','You have not Access For Admin');
@@ -44,7 +64,7 @@ class LoginController extends Controller
     public function logout()
     {
       Auth::logout();
-      return redirect()->route('admin.login')->with('success','Admin has been logged out!');
+      return redirect()->route('agentlogin')->with('success','Admin has been logged out!');
     }
 
     /**
