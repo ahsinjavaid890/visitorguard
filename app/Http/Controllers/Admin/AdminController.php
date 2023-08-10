@@ -667,7 +667,7 @@ class AdminController extends Controller
         $update->about_me = $request->about;
         if($request->profileimage)
         {
-            $update->profileimage = Cmf::sendimagetodirectory($request->profileimage);
+            $update->user_pic = Cmf::sendimagetodirectory($request->profileimage);
         }
         $update->save();
         return redirect()->back()->with('message', 'Your Profile Updated Successfully');

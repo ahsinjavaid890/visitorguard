@@ -145,6 +145,19 @@ class SettingsController extends Controller
             return back()->with('warning', 'Something went Wrong!')->withInput();
         }
     }
+
+
+    
+    public function updatelinks(Request $request)
+    {
+        $settings = Settings::where('smallname' , Cmf::getsite())->first();
+        $upadate = Settings::find($settings->id);
+        $upadate->facebook_link = $request->facebook_link;
+        $upadate->insta_link = $request->insta_link;
+        $upadate->twitter_link = $request->twitter_link;
+        $upadate->save();
+        return redirect()->back()->with('message', 'Social Links Updated Successfully');
+    }
     
     
 }

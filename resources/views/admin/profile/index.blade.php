@@ -27,10 +27,10 @@
         <div class="col-xl-4 col-lg-5">
             <div class="card text-center">
                 <div class="card-body">
-                    <img width="150" height="150" src="{{ url('public/images') }}/{{ Auth::user()->profileimage }}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
+                    <img width="150" height="150" src="{{ url('public/images') }}/{{ Auth::user()->user_pic }}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
                     <h4 class="mb-0 mt-2">{{ Auth::user()->name }}</h4>
-                    <p class="text-muted font-14">Admin</p>
+                    <p class="text-muted font-14">Agent</p>
 
                     <div class="text-left mt-3">
                         <h4 class="font-13 text-uppercase">About Me :</h4>

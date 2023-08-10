@@ -190,6 +190,7 @@ Route::name('admin.')->prefix('admin')->namespace('App\Http\Controllers\Admin')-
         Route::get('/settings','SettingsController@appearance');
         Route::post('/settingsupdate','SettingsController@appearance_update');
         Route::post('/updatelogos','SettingsController@updatelogos');
+        Route::post('/updatelinks','SettingsController@updatelinks');
     });
     Route::name('companies.')->prefix('companies')->group(function(){
         Route::get('/allcompanies','AdminController@allcompanies');
