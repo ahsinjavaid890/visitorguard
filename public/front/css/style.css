@@ -8449,7 +8449,7 @@ section {
 .health-inssurance-hero-banners {
     /*padding: 40px 50px 40px 15px;*/
     background-color: #2b3481;
-    margin-top: 70px;
+    margin-top: 30px;
     color: white;
 }
 
@@ -15076,3 +15076,24 @@ ul .child-list li a {
         }
     }
 
+.headlogo .navbar-dark a {
+    color: #000;
+    padding: 5px 5px;
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+}
+.headlogo .navbar-dark {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+.headlogo .navbar-dark a {
+    padding: 5px 13px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.mainhead{
+    margin-top: 20px;
+}

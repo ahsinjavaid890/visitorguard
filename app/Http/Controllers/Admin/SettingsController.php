@@ -5,7 +5,7 @@ use App\Helpers\Cmf;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\site_settings as Settings;
-
+use Artisan;
 class SettingsController extends Controller
 {
     //
@@ -20,137 +20,100 @@ class SettingsController extends Controller
     }
     public function appearance_update(Request $request)
     {
-
-        $input = $request->all();
         $settings = Settings::where('smallname' , 'visitorguard')->first();
-        if(!empty($input['website_name']))
-        $settings->site_name = $input['website_name'];
-        if(!empty($input['site_motto']))
-        $settings->site_moto = $input['site_motto'];
-         
-
-        if(!empty($input['site_email']))
-        $settings->site_email = $input['site_email'];
-        if(!empty($input['site_phonenumber']))
-        $settings->site_phonenumber = $input['site_phonenumber'];
-        if(!empty($input['site_fax']))
-        $settings->site_fax = $input['site_fax'];
-        if(!empty($input['site_address']))
-        $settings->site_address = $input['site_address'];
-        
-
-
-        if(!empty($input['paypal']))
-        $settings->paypal = $input['paypal'];
-        if(!empty($input['stripe']))
-        $settings->stripe = $input['stripe'];
-        if(!empty($input['jazcash']))
-        $settings->jazcash = $input['jazcash'];
-
-
-
-        if(!empty($input['published_stripe']))
-        $settings->published_stripe = $input['published_stripe'];
-        if(!empty($input['secret_stripe']))
-        $settings->secret_stripe = $input['secret_stripe'];
-
-    
-        if(!empty($input['paypal_secret']))
-        $settings->paypal_secret = $input['paypal_secret'];
-        if(!empty($input['paypal_client']))
-        $settings->paypal_client = $input['paypal_client'];
-
-    
-        if(!empty($input['cod']))
-        $settings->cod = $input['cod'];
-        
-
-
-        if(!empty($input['vat_percentage']))
-        $settings->vat_percentage = $input['vat_percentage'];
-        if(!empty($input['vat_value']))
-        $settings->vat_value = $input['vat_value'];
-        if(!empty($input['sale_percentage']))
-        $settings->sale_percentage = $input['sale_percentage'];
-        if(!empty($input['sale_value']))
-        $settings->sale_value = $input['sale_value'];
-
-
-    
-        $updated = $settings->save();
-        
-        if($updated)
-        {
-
-          return redirect()->back()->with('message', 'Settings Updated Successfully');
-        }
-        else
-        {
-            return back()->with('warning', 'Something went Wrong!')->withInput();
-        }
+        $upadate = Settings::find($settings->id);
+        $upadate->site_name = $request->website_name;
+        $upadate->site_phonenumber = $request->site_phonenumber;
+        $upadate->site_address = $request->site_address;
+        $upadate->site_email = $request->site_email;
+        $upadate->site_basecolor = $request->site_basecolor;
+        $upadate->site_hovercolor = $request->site_hovercolor;
+        $upadate->site_textcolor = $request->site_textcolor;
+        $upadate->save();
+        return redirect()->back()->with('message', 'Settings Updated Successfully');
     }
 
     public function updatelogos(Request $request)
     {
         $settings = Settings::where('smallname' , 'visitorguard')->first();
-        if(!empty($request->header_logo))
+        $asdasdsad = Settings::find($settings->id);
+        if($request->header_logo)
         {
-            $settings->header_logo = Cmf::sendimagetodirectory($request->header_logo);
+            $asdasdsad->header_logo = Cmf::sendimagetodirectory($request->header_logo);
         }
-        if(!empty($request->footer_logo))
+        if($request->footer_logo)
         {
-            $settings->footer_logo = Cmf::sendimagetodirectory($request->footer_logo);
+            $asdasdsad->footer_logo = Cmf::sendimagetodirectory($request->footer_logo);
         }
-        if(!empty($request->favicon))
+        if($request->favicon)
         {
-            $settings->favicon = Cmf::sendimagetodirectory($request->favicon);
+            $asdasdsad->favicon = Cmf::sendimagetodirectory($request->favicon);
         }
-        $updated = $settings->save();
-        if($updated)
-        {
-          return redirect()->back()->with('message', 'Settings Updated Successfully');
-        }
-        else
-        {
-            return back()->with('warning', 'Something went Wrong!')->withInput();
-        }
+        $asdasdsad->save();
+        return redirect()->back()->with('message', 'Logos Updated Successfully');
     }
-
-    public function payementmethod()
+    public function cacheclear()
     {
-        $settings = Settings::first();
-        return view('admin.settings.payementmethod',compact("settings"));
+        Artisan::call('route:clear');
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        Artisan::call('storage:link');
+        return redirect()->back()->with('message', 'Cache Cleard Successfully');
     }
-    public function taxsettings()
+    public function serverinfo()
     {
-        $settings = Settings::first();
-        return view('admin.settings.taxsettings',compact("settings"));
+        return view('admin.website.serverinfo');
     }
-
-    public function taxsettingsupdate(Request $request)
+    public function emailsettings()
+    {   
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
+        return view('admin.website.emailsettings',compact("settings"));
+    }
+    public function emailsettingsupdate(Request $request)
+    {   
+        $settings = Settings::where('smallname' ,  'visitorguard')->first();
+        $upadate = Settings::find($settings->id);
+        $upadate->email_template = $request->email_temp;
+        $upadate->save();
+        return redirect()->back()->with('message', 'Email Template Settings Updated Successfully');
+    }
+    public function clearcache()
     {
-        $input = $request->all();
-        $settings = Settings::first();
-        $settings->vat_percentage = $input['vat_percentage'];
-        $settings->vat_value = $input['vat_value'];
-        $settings->sale_percentage = $input['sale_percentage'];
-        $settings->sale_value = $input['sale_value'];
-        $updated = $settings->save();
-        if($updated)
-        {
-          return redirect()->back()->with('message', 'Settings Updated Successfully');
-        }
-        else
-        {
-            return back()->with('warning', 'Something went Wrong!')->withInput();
-        }
+        return view('admin.website.clearcache');
     }
-
-
+    public function settingsupdate(Request $request)
+    {
+        $settings = Settings::where('smallname' ,  'visitorguard')->first();
+        $upadate = Settings::find($settings->id);
+        $upadate->site_name = $request->website_name;
+        $upadate->site_phonenumber = $request->site_phonenumber;
+        $upadate->site_address = $request->site_address;
+        $upadate->site_email = $request->site_email;
+        $upadate->site_basecolor = $request->site_basecolor;
+        $upadate->site_hovercolor = $request->site_hovercolor;
+        $upadate->site_textcolor = $request->site_textcolor;
+        $upadate->save();
+        return redirect()->back()->with('message', 'Settings Updated Successfully');
+    }
+    public function userpanelsettings()
+    {   
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
+        return view('admin.website.userpanelsetting',compact("settings"));
+    }
     
+    public function userpanelsettingupdate(Request $request)
+    {   
+        $settings = Settings::where('smallname' ,  'visitorguard')->first();
+        $upadate = Settings::find($settings->id);
+        $upadate->userpanel_temp = $request->userpanel_temp;
+        $upadate->buynow_form = $request->buynow_form;
+        $upadate->save();
+        return redirect()->back()->with('message', 'User Panel Settings Updated Successfully');
+    }
     public function updatelinks(Request $request)
     {
-        $settings = Settings::where('smallname' , Cmf::getsite())->first();
+        $settings = Settings::where('smallname' , 'visitorguard')->first();
         $upadate = Settings::find($settings->id);
         $upadate->facebook_link = $request->facebook_link;
         $upadate->insta_link = $request->insta_link;
@@ -158,6 +121,5 @@ class SettingsController extends Controller
         $upadate->save();
         return redirect()->back()->with('message', 'Social Links Updated Successfully');
     }
-    
-    
+
 }
