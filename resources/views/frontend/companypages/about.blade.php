@@ -1,8 +1,8 @@
 @extends('frontend.layouts.main')
 @section('firstnav')
 <div class="col-md-12 py-5 d-lg-block d-none">
-    <h1 class="head">About Life Advice
-    <span>What Makes Life Advice Extra Smart?</span></h1>
+    <h1 class="head">About Visitor Guard
+    <span>What Makes Visitor Guard Extra Smart?</span></h1>
 </div>
 @endsection
 @section('secondnav')
@@ -89,7 +89,7 @@
    <div class="row align-items-center">
       <div class="col-md-6">
          <div class="col-md-12">
-            <h3 style="font-size: 30px;">Life Advice Online Support</h3>
+            <h3 style="font-size: 30px;">Visitor Guard Online Support</h3>
             <br>
             <p>Lifesadvice will be providing ongoing support and helpful articles that will provide our readers with all of the latest info on insurance products and requirements for travel and immigration. Through our resources and our skilled staff members, we can make insurance products more accessible and affordable than ever before.</p>
          </div>

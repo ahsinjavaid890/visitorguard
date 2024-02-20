@@ -1,10 +1,3 @@
-
-
-body {
-    margin:0;
-    padding:0;
-    background:#f3f5f9;
-}
 .tabshead {
     background:#222;
 }
@@ -37,12 +30,6 @@ body {
 }
 .tabscontent {
     color:#222;
-}
-.tabscontent .row {
-/*    margin:0 !important;*/
-}
-.row{
-    margin-left: 0% !important;
 }
 .tabscontent h1 {
     color: #222;
@@ -86,14 +73,6 @@ color: #FFF;
     border: 1px solid #eee;
 }
 
-.footer{background:#222; padding:30px 0px; color:#fff;}
-.footer h4{color:#fff; font-size:20px; position:relative; font-weight:900; margin-bottom:20px; line-height:28px;}
-.footer h4:after{position:relative; content:'_______'; line-height:4px; font-size:30px; letter-spacing:-2px; width:100%; display:block; color:#1BBC9B; left:0px; bottom:10px;}
-.footer ul{padding-left:14px;}
-.footer li{list-style:square; color:#1BBC9B;}
-.footer li a{color:#ccc; text-decoration:none;}
-.footer li a:hover{color:#fff;}
-.footer p { margin-bottom: 10px !important; }
 .copy {
     border-top: 1px solid #546781;
     padding-top: 10px;
@@ -125,9 +104,6 @@ color: #FFF;
 .visible-xs{
     display: none;
 }
-input[type="text"], input[type="password"] {
-    border: 0 !important;
-}
 .dh-toggle-show-hide-216{
     z-index: 2;
 }
@@ -145,12 +121,13 @@ input[type="text"], input[type="password"] {
 
 
     .dh-listings b {
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .dh-listings hr {
         border: 1px solid #d0d0d0;
-        margin: 0px !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
     }
 
     .dh-listings ul {
@@ -384,8 +361,9 @@ sup.superior {
     display: block!important;
 } 
  .row.plan-details {
- display: block;
-
+    display: block;
+    border-radius: 0;
+    margin-left: 0 !important;
   }
 .ui.checkbox.large.nopad label{
      padding:11px;
@@ -559,10 +537,25 @@ padding: 45px 0;
     padding-left:0 !important;
     padding-right:0 !important;
 }
-.ui-state-default, .ui-widget-content .ui-state-default{
+/* .ui-state-default, .ui-widget-content .ui-state-default{
     border: 4px solid #1bbc9b !important;
     background: #1bbc9b !important;
     font-weight: normal;
     color: #454545;
     border-radius: 11px;
+} */
+
+@media only screen and (max-width:600px){
+    .mobile-deisply-none{
+        display:none!important
+    }
+    .mobile-deisply-show{
+        display: block !important;
+    }
+    .mobile-displayflex{
+        display: flex;
+    }
+    .mobilewidth{
+        width: 50%;
+    }
 }

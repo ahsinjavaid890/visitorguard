@@ -657,13 +657,13 @@
                                                       <tr>
                                                          <td style="padding:0px 30px 0px 30px;line-height:28px;text-align:inherit" height="100%" valign="top" bgcolor="" role="module-content">
                                                             <div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting Life Advice Insurance Inc. We're here to support you every step of the way.
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting Visitor Guard Insurance Inc. We're here to support you every step of the way.
                                                                   </span>
                                                                </div>
                                                                <div style="font-family:inherit;text-align:inherit"><br></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Sincerely,  </span></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><br></div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Life Advice</span></div>
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Visitor Guard</span></div>
                                                                <div></div>
                                                             </div>
                                                          </td>
@@ -808,7 +808,7 @@
                                                                   <tr height="7" style="height:7px"></tr>
                                                                   <tr>
                                                                      <td align="center">
-                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Life Advice Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Life Advice Inc®. All Rights Reserved.</p>
+                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Guard Inc®. All Rights Reserved.</p>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>

@@ -4,7 +4,7 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-3 col-md-6">
-               <img src="{{ url('public/front/visitorguard/images/brand-foot.png') }}" alt="Life Advice"><br>
+               <img src="{{ url('public/front/visitorguard/images/brand-foot.png') }}" alt="Visitor Guard"><br>
                <br>
                <p>Life Insurance Insurance has been a trusted name in insurance for more than 10 years. Today, we proudly serve insurance provincewide.</p>
             </div>
@@ -21,7 +21,7 @@
                <h4>Useful Links</h4>
                <ul>
                   <li><a href="{{ url('') }}/">Home</a></li>
-                  <li><a href="{{ url('aboutus') }}">About Life Advice</a></li>
+                  <li><a href="{{ url('aboutus') }}">About Visitor Guard</a></li>
                   <li><a href="{{ url('faq') }}">FAQ</a></li>
                   <li><a href="{{ url('blogs') }}">Blogs</a></li>
                   <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
@@ -32,7 +32,7 @@
                <h4>Contact Us</h4>
                <p><i class="fa fa-phone"></i> +1-855-500-8999</p>
                <p><i class="fa fa-envelope"></i> contact@lifeadvice.ca</p>
-               <p><i class="fa fa-map-marker"></i> Life Advice Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6</p>
+               <p><i class="fa fa-map-marker"></i> Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6</p>
             </div>
             <div class="col-md-12 copy">
                <div class="row">

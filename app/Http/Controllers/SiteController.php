@@ -291,7 +291,7 @@ class SiteController extends Controller
     }
     public function compareplans($id)
     {
-        return view('frontend.formone.compare')->with(array('id'=>$id));
+        return view('frontend.formone.compare')->with(array('id' => $id));
     }
     public function productdetail($id)
     {
@@ -336,20 +336,21 @@ class SiteController extends Controller
     }
     public function supervisa()
     {
-
-        $data = wp_dh_products::where('url' , 'super-visa-insurance')->first();
-        if($data)
-        {
-            $fields = unserialize($data->pro_fields);
-            $wp_dh_insurance_plans = wp_dh_insurance_plans::select('wp_dh_insurance_plans.id')->where('product' , $data->pro_id)->get();
-            $sum_insured = wp_dh_insurance_plans_rates::select('wp_dh_insurance_plans_rates.sum_insured')->whereIn('plan_id' , $wp_dh_insurance_plans)->groupby('sum_insured')->get();
-            return view('frontend.companypages.supervisa')->with(array('data'=>$data,'fields'=>$fields,'sum_insured'=>$sum_insured));
-        }
-        else
-        {
+        $visitorinsureproduct = wp_dh_products::where('url', 'super-visa-insurance')->where('website', 'visitorguard')->first();
+        $data = wp_dh_products::where('url', 'super-visa-insurance')->where('website', 'lifeadvice')->first();
+        if ($visitorinsureproduct) {
+            $fields = unserialize($visitorinsureproduct->pro_fields);
+            $sortfields = unserialize($visitorinsureproduct->pro_sort);
+            $dataforsuminsure = wp_dh_products::where('url', 'super-visa-insurance')->where('website', 'lifeadvice')->first();
+            $wp_dh_insurance_plans = wp_dh_insurance_plans::select('wp_dh_insurance_plans.id')->where('product', $dataforsuminsure->pro_id)->get();
+            $sum_insured = wp_dh_insurance_plans_rates::select('wp_dh_insurance_plans_rates.sum_insured')->whereIn('plan_id', $wp_dh_insurance_plans)->groupby('sum_insured')->get();
+            return view('frontend.travelinsurance.super-visa')->with(array('dataforsuminsure'=>$dataforsuminsure,'visitorinsureproduct' => $visitorinsureproduct,'data' => $data,'orderdata' => $sortfields, 'fields' => $fields, 'sum_insured' => $sum_insured));
+            
+        } else {
             return response()->view('frontend.errors.404', [], 404);
         }
     }
+
     public function travel()
     {
         $data = wp_dh_products::where('url' , 'travel-insurance')->first();

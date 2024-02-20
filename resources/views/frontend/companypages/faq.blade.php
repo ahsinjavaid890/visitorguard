@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('firstnav')
 <div class="col-md-12 py-5 d-lg-block d-none">
-    <h1 class="head">FAQ<span>What Makes Life Advice Extra Smart?</span></h1>
+    <h1 class="head">FAQ<span>What Makes Visitor Guard Extra Smart?</span></h1>
 </div>
 @endsection
 @section('secondnav')

@@ -96,7 +96,7 @@
          <p>We want to help Canadians and travelers from around the world to recognize the best insurance products that can deliver the greatest value in their market. With a wide range of insurance products that can suit almost any budget.</p>
          <div class="testi mt-5">
             Through the handy tips available on licensed vice as well as the newest insurance research that we are performing, you can be covered for almost any type of eventuality while you are traveling or while you are accepting visitors from around the world.<br>
-            <h4>Life Advice</h4>
+            <h4>Visitor Guard</h4>
          </div>
       </div>
       <div class="col-md-5">
@@ -368,7 +368,7 @@ $('.clients').slick({
   "logo": "https://lifeadvice.ca/images/brand.png",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Life Advice Insurance Inc,912 Isaiah Place,",
+    "streetAddress": "Visitor Guard Insurance Inc,912 Isaiah Place,",
     "addressLocality": "Kitchener",
     "addressRegion": "ON",
     "postalCode": "N2E0B6",

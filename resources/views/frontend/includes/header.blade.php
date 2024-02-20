@@ -13,7 +13,7 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                      <li class="nav-item">
-                        <a href="{{ url('aboutus') }}">About Life Advice</a>
+                        <a href="{{ url('aboutus') }}">About Visitor Guard</a>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" data-toggle="dropdown"> Travel Insurance </a>

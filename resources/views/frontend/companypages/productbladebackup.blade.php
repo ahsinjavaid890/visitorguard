@@ -162,7 +162,7 @@
             <div class="col-md-4">
                 <div class="trip-heading">
                     <h2><span>Investment</span> Insurance</h2>
-                    <p>A wide variety of investment products exist to help you achieve your financial goals.  When it comes to saving for the future, many Canadians use a tax-smart registered account such as a RESP, TFSA or RRSP discover the risks and benefits of different investment products by Life Advice Insurance,</p>
+                    <p>A wide variety of investment products exist to help you achieve your financial goals.  When it comes to saving for the future, many Canadians use a tax-smart registered account such as a RESP, TFSA or RRSP discover the risks and benefits of different investment products by Visitor Guard Insurance,</p>
                 </div>
                 <div class="trip-image">
                     <img src="{{asset('public/front/img/images/coin-laptop.png')}}">

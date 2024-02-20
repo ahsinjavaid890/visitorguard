@@ -18,19 +18,27 @@ use App\Models\wp_dh_insurance_plans;
 use App\Models\wp_dh_life_plans;
 use App\Models\wp_dh_products;
 use App\Models\quotes;
+use App\Models\sales_cards;
 use App\Models\wp_dh_insurance_plans_pdfpolicy;
 use App\Models\wp_dh_insurance_plans_deductibles;
 use App\Models\product_categories;
 use App\Models\plan_benifits_categories;
 use App\Models\sales;
+use App\Models\testimonials;
 use Illuminate\Support\Facades\Hash;
-use Mail;
-use  Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 class AdminController extends Controller
 {
     public function dashboard(){
         return view('admin/dashboard/index');
+    }
+    public function changewebsite($id)
+    {
+        DB::table('select_websites')->where('id' , 1)->update(array('name' => $id));
+        return redirect()->back()->with('message', 'Website Change Successfully');
     }
     public function editproduct($id)
     {
@@ -41,6 +49,9 @@ class AdminController extends Controller
     }
     public function updateproducts(Request $request)
     {
+        
+
+
         $category_id = $request->category_id;
         $pro_name = $request->pro_name;
         $pro_parent = $request->pro_parent;
@@ -49,7 +60,7 @@ class AdminController extends Controller
         $pro_travel_destination = $request->destinationtype;
         $pro_url = $request->pro_url;
         $redirect_from_url = $request->redirect_from_url;
-
+        $quotation_form_on_stylish_page = $request->quotation_form_on_stylish_page;
         $prod_fields = serialize($request->prod);
         $sort_orders = array();
         $i = 1;
@@ -67,13 +78,11 @@ class AdminController extends Controller
         if($request->vector)
         {
             $vector = Cmf::sendimagetodirectory($request->vector);
-            DB::statement("UPDATE `wp_dh_products` SET `vector`='$vector',`description`='$request->description',`category_id`='$category_id',`pro_name`='$pro_name',`pro_parent`='$pro_parent',`pro_supervisa`='$pro_supervisa',`pro_life`='$pro_life',`pro_fields`='$prod_fields',`pro_sort`='$sort_orders',`pro_travel_destination`='$pro_travel_destination',`pro_url`='$pro_url', `redirect_from_url`='$redirect_from_url' WHERE `pro_id`='$request->id'");
+            DB::statement("UPDATE `wp_dh_products` SET `stylish_price_layout`='$request->stylish_price_layout', `vector`='$vector',`description`='$request->description',`category_id`='$category_id',`pro_name`='$pro_name',`pro_parent`='$pro_parent',`pro_supervisa`='$pro_supervisa',`pro_life`='$pro_life',`pro_fields`='$prod_fields',`pro_sort`='$sort_orders',`pro_travel_destination`='$pro_travel_destination',`pro_url`='$pro_url', `redirect_from_url`='$redirect_from_url' WHERE `pro_id`='$request->id'");
         }else{
-            DB::statement("UPDATE `wp_dh_products` SET `description`='$request->description',`category_id`='$category_id',`pro_name`='$pro_name',`pro_parent`='$pro_parent',`pro_supervisa`='$pro_supervisa',`pro_life`='$pro_life',`pro_fields`='$prod_fields',`pro_sort`='$sort_orders',`pro_travel_destination`='$pro_travel_destination',`pro_url`='$pro_url', `redirect_from_url`='$redirect_from_url' WHERE `pro_id`='$request->id'");
+            DB::statement("UPDATE `wp_dh_products` SET `stylish_price_layout`='$request->stylish_price_layout' , `stylish_form_layout`='$request->stylish_form_layout',`quotation_form_on_stylish_page`='$request->quotation_form_on_stylish_page',`description`='$request->description',`category_id`='$category_id',`pro_name`='$pro_name',`pro_parent`='$pro_parent',`pro_supervisa`='$pro_supervisa',`pro_life`='$pro_life',`pro_fields`='$prod_fields',`pro_sort`='$sort_orders',`pro_travel_destination`='$pro_travel_destination',`pro_url`='$pro_url', `redirect_from_url`='$redirect_from_url' WHERE `pro_id`='$request->id'");
         }
 
-
-        
         return redirect()->back()->with('message', 'Product Updated Successfully');
     }
 
@@ -153,6 +162,11 @@ class AdminController extends Controller
         $data = DB::table('users')->where('id' , $id)->first();
         return view('admin.users.edituser')->with(array('data'=>$data));
     }
+    public function deleteuser($id)
+    {
+        DB::table('users')->where('id' , $id)->delete();
+        return redirect()->back()->with('message', 'User Deleted Successfully');   
+    }
     public function memberdocument()
     {
         return view('admin.document.member-document');
@@ -196,9 +210,42 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'Message Deleted Successfully');
     }
 
+    //testimonials
+
+    public function testimonials(){
+        $data = testimonials::all();
+        return view('admin.testimonials.all')->with(array('data'=>$data));
+    }
+
+    public function addtestimonials(Request $request){
+        $add = new testimonials();
+        $add->name = $request->name;
+        $add->image = Cmf::sendimagetodirectory($request->image);
+        $add->testimonial = $request->testimonial;
+        $add->save();
+        return redirect()->back()->with('message', 'Testimonial Added Successfully');
+    }
+    public function updatetestimonials(Request $request){
+        $add = testimonials::find($request->id);
+        $add->name = $request->name;
+        $add->testimonial = $request->testimonial;
+        if($request->image)
+        {
+            $add->image = Cmf::sendimagetodirectory($request->image);
+        }
+        $add->save();
+        return redirect()->back()->with('message', 'Testimonial Updated Successfully');
+    }
+
+    public function deletetestimonials($id)
+    {
+        DB::table('testimonials')->where('id' , $id)->delete();
+        return redirect()->back()->with('message', 'Testimonial Deleted Successfully');
+    }
+
     public function allproducts()
     {
-        $data = DB::table('wp_dh_products')->where('status' , 1)->where('website','visitorguard')->orderby('pro_name' , 'desc')->get();
+        $data = DB::table('wp_dh_products')->where('website' , 'visitorguard')->where('status' , 1)->orderby('category_id', 'desc')->get();
         return view('admin.products.index')->with(array('data'=>$data));
     }
     public function allplans()
@@ -270,6 +317,9 @@ class AdminController extends Controller
         $updateplan->last_updated_by = Auth::user()->id;
         $updateplan->save();
         
+
+
+        wp_dh_insurance_plans_deductibles::where('plan_id' , $updateplan->id)->delete();
         for($i=0;$i<count($request->ideductHash);$i++){
             $deduct = $request->ideductHash[$i];
             $ideductPer = $request->ideductPer[$i];
@@ -280,6 +330,8 @@ class AdminController extends Controller
             $add_deductibles->created_by = Auth::user()->id;
             $add_deductibles->save();
         }
+
+
         $rateBase = $request->irateCalculation;
         if($rateBase == '3')
         {
@@ -305,6 +357,7 @@ class AdminController extends Controller
               }
              }
         } else {
+            DB::table('wp_dh_insurance_plans_rates')->where('plan_id' , $updateplan->id)->delete();
             for($i=0;$i<count($request->iratesMin);$i++){
                 $irateMin = $request->iratesMin[$i];
                 $irateMax = $request->iratesMax[$i];
@@ -314,11 +367,11 @@ class AdminController extends Controller
                 $cuser = Auth::user()->id;
                 $time = time();
                 $insertRates = "INSERT INTO wp_dh_insurance_plans_rates(plan_id, minage,maxage,sum_insured,rate_with_pre_existing,rate_without_pre_existing,created_on, created_by ) VALUES('$updateplan->id','$irateMin','$irateMax','$irateSum','$irateRate','$iratesRatewithout', '$time', '$cuser')";
-                
                 DB::statement($insertRates);
             }
         }
-        return redirect()->back()->with('message', 'Plan Added Successfully');
+        $redirecturl = url('admin/plans/editplan/').'/'.$updateplan->id;
+        return Redirect::to($redirecturl);
     }
     public function planupdate(Request $request)
     {
@@ -599,64 +652,49 @@ class AdminController extends Controller
 
     public function updateusers(Request $request)
     {
-        
-
         $update = User::find($request->id);
-        $update->name = $request->fname.' '.$request->lname;
-        $update->email = $request->email;
-        $update->phone = $request->phone;
-        $update->dob = $request->dob; 
-        $update->about_me = $request->about_me;
-        $update->username = $request->username;
-        $update->password = Hash::make($request->password);
-        if($request->logo)
-        {
-            $update->logo = Cmf::sendimagetodirectory($request->logo);
-        }
-        $update->address = $request->address;
-        $update->province = $request->province;
-        $update->city = $request->city;
-        $update->country = $request->country;
-        $update->postal = $request->postal;
-        $update->user_type = $request->user_type;
-        $update->parent_id = $request->parent_id;
-        $update->status = $request->status;
-        $update->mg_capability = $request->mg_capability;
-        $update->fiscal_year = $request->fiscal_year;
-        $update->save();
-        return redirect()->back()->with('message', 'User Updated Successfully');
-    }
-    public function addnewusers(Request $request)
-    {
-        
+        $update->name = $request->name;
+        if($request->insurancedocument){
 
-        $update = new User;
-        $update->name = $request->fname.' '.$request->lname;
+            $update->insurancedocument = Cmf::sendimagetodirectory($request->insurancedocument);
+        }
         $update->email = $request->email;
         $update->phone = $request->phone;
-        $update->dob = $request->dob; 
         $update->about_me = $request->about_me;
-        $update->username = $request->username;
         if($request->password){
 
             $update->password = Hash::make($request->password);
         }
-        if($request->logo)
-        {
-            $update->logo = Cmf::sendimagetodirectory($request->logo);
+        $update->address = $request->address;
+        $update->province = $request->province;
+        $update->city = $request->city;
+        $update->country = $request->country;
+        $update->postal = $request->postal;
+        $update->status = $request->status;
+        $update->save();
+        return redirect()->back()->with('message', 'Agent Updated Successfully');
+    }
+    public function addnewusers(Request $request)
+    {
+        $update = new User;
+        $update->website = $request->website;
+        $update->name = $request->name;
+        $update->email = $request->email;
+        $update->phone = $request->phone;
+        $update->about_me = $request->about_me;
+        if($request->password){
+
+            $update->password = Hash::make($request->password);
         }
         $update->address = $request->address;
         $update->province = $request->province;
         $update->city = $request->city;
         $update->country = $request->country;
         $update->postal = $request->postal;
-        $update->user_type = $request->user_type;
-        $update->parent_id = $request->parent_id;
-        $update->status = $request->status;
-        $update->mg_capability = $request->mg_capability;
-        $update->fiscal_year = $request->fiscal_year;
+        $update->status = 'active';
+        $update->type = 'agent';
         $update->save();
-        return redirect()->back()->with('message', 'User Updated Successfully');
+        return redirect()->back()->with('message', 'Agent Added Successfully');
     }
     public function updateuserprofile(Request $request)
     {
@@ -667,7 +705,7 @@ class AdminController extends Controller
         $update->about_me = $request->about;
         if($request->profileimage)
         {
-            $update->user_pic = Cmf::sendimagetodirectory($request->profileimage);
+            $update->profileimage = Cmf::sendimagetodirectory($request->profileimage);
         }
         $update->save();
         return redirect()->back()->with('message', 'Your Profile Updated Successfully');
@@ -704,7 +742,7 @@ class AdminController extends Controller
     }
     public function allsale()
     {
-        $data = DB::table('sales')->where('website','visitorguard')->orderby('id' , 'DESC')->paginate(10);
+        $data = DB::table('sales')->where('website','visitorguard')->orderby('newstatus' , 'ASC')->paginate(10);
         return view('admin.sales.allsale')->with(array('data'=>$data));
     }
     public function editsale($id)
@@ -726,23 +764,79 @@ class AdminController extends Controller
         if($request->policydocument)
         {
             $document = Cmf::sendimagetodirectory($request->policydocument);
-            $update = array('policy_number' => $request->policy_number, 'policy_status' => $request->policy_status, 'policydocument' => $document);
+            $update = array('policy_number' => $request->policy_number, 'status' => $request->policy_status, 'policydocument' => $document);
         }else{
-            $update = array('policy_number' => $request->policy_number, 'policy_status' => $request->policy_status);
+            $update = array('policy_number' => $request->policy_number, 'status' => $request->policy_status);
         }
-        DB::table('sales')->where('sales_id' , $request->id)->update($update);
+        DB::table('sales')->where('id' , $request->id)->update($update);
         return redirect()->back()->with('message', 'Sales Updated Successfully');
     }
 
     public function viewsale($id)
     {
-
         DB::table('sales')->where('id' , $id)->update(array('newstatus' =>'old'));
         $data = DB::table('sales')->where('id' , $id)->first();
         $company = DB::table('wp_dh_companies')->where('comp_id' , $data->comp_id)->first();
         return view('admin.sales.viewsale')->with(array('data'=>$data,'company'=>$company));
-
-
+    }
+    public function sendcode($id)
+    {
+        $rand = rand(1234, 4321);
+        $data = sales_cards::where('sale_id', $id)->first();
+        $addcode = sales_cards::find($data->id);
+        $addcode->code = $rand;
+        $addcode->save();
+        $subject = 'Verfication Code For Customer Card Information';
+        Mail::send('email.template1.sendcode', ['code' => $rand], function ($message) use ($subject) {
+            $message->to('admin@lifeadvice.ca');
+            $message->subject($subject);
+        });
+    }
+    public function showdetailsbutton($id , $code)
+    {
+        $data = sales_cards::where('sale_id' , $id)->first();
+        $card = sales_cards::find($data->id);
+        if($code == $card->code)
+        {
+            echo '<h2 style=" text-align: center; color: red; font-size: 18px; ">Please Coppy Card Details POP Will Disapper after 30 Second and Page Load Automatically</h2><table class="table table-borderd">
+                <tbody>
+                    <tr>
+                        <td bgcolor="#F6F6F6"><strong>Card Holder Name:</strong></td>
+                        <td>
+                            '.$card->card_name.'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F6F6F6"><strong>Card Number:</strong></td>
+                        <td>
+                            '.$card->card_number.'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F6F6F6"><strong>Card CVC:</strong></td>
+                        <td>
+                            '.$card->card_cvc.'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F6F6F6"><strong>Card Month:</strong></td>
+                        <td>
+                            '.$card->card_month.'
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F6F6F6"><strong>Card Year:</strong></td>
+                        <td>
+                            '.$card->card_year.'
+                        </td>
+                    </tr>
+                </tbody>
+               
+            </table>';
+        }else{
+            echo 1;
+        }
+        
     }
     public function allcompanies()
     {
@@ -754,7 +848,7 @@ class AdminController extends Controller
 
     public function blogcategories()
     {
-        $data = DB::table('blogcategories')->where('website','visitorguard')->get();
+        $data = DB::table('blogcategories')->where('website' , 'visitorguard')->get();
         return view('admin.blogs.categories')->with(array('data'=>$data));
     }
     public function deleteblogcategory($id)
@@ -766,16 +860,16 @@ class AdminController extends Controller
     public function allblogs()
     {
         $data = DB::table('blogs')->where('website','visitorguard')->get();
-        $categories = blogcategories::where('website','visitorguard')->get();
+        $categories = blogcategories::where('website' , 'visitorguard')->get();
         return view('admin.blogs.addblog')->with(array('data'=>$data,'categories'=>$categories));
     }
     public function addnewblogcategory(Request $request)
     {
         $saveblog = new blogcategories;
         $saveblog->name = $request->name;
+        $saveblog->website = 'visitorguard';
         $saveblog->status = 1;
         $saveblog->url = Cmf::shorten_url($request->name);
-        $saveblog->website = 'visitorguard';
         $saveblog->save();
         return redirect()->back()->with('message', 'Blog Category Successfully Inserted');
         

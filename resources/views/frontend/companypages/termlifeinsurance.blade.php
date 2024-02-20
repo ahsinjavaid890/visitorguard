@@ -1,7 +1,7 @@
 @extends('frontend.layouts.main')
 @section('firstnav')
 <div class="col-md-12 py-5 d-lg-block d-none">
-    <h1 class="head">About Life Advice
+    <h1 class="head">About Visitor Guard
     <span>Critical Illness Insurance Ontario,Canada</span></h1>
 </div>
 @endsection

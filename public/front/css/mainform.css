@@ -161,17 +161,14 @@
 
 
 
-.quotationscards .left_qoute_card{
-   height: 290px;
-}
 .qoute-card{
     border-radius: 1rem;
     box-shadow: 0 10px 25px rgb(87 106 134 / 25%);
-    max-width: 1150px;
+/*    max-width: 1150px;*/
     width: 100%;
     background: #fff;
     position: relative;
-    left: 21%;
+    left: 11%;
     top: -31px;
 }
 .get-quotes-button{
@@ -420,7 +417,7 @@
    position: relative;
    cursor: pointer;
    }
-   .form-input.date-range .from:before {
+/*   .form-input.date-range .from:before {
    position: absolute;
    content: "";
    display: block;
@@ -434,7 +431,7 @@
    visibility: hidden;
    transition-duration: .15s;
    transition-property: visibility,opacity;
-   }
+   }*/
    .form-input.date-range .from .icon {
    width: 16px;
    }
@@ -924,7 +921,7 @@
     opacity: 1;
     visibility: visible;
 }
-.form-input.date-range .from:before {
+/*.form-input.date-range .from:before {
     position: absolute;
     content: "";
     display: block;
@@ -938,7 +935,7 @@
     visibility: hidden;
     transition-duration: .15s;
     transition-property: visibility,opacity;
-}
+}*/
 .form-input.date-range .from .icon {
     width: 16px;
 }
@@ -2797,7 +2794,7 @@ li.date_picker_week_day {
 /*    margin-top: 37px;*/
 }
 .plan-coverage-limits{
-    margin-top: 14px;
+    margin-top: 10px;
 }
 .qoute-price-select .wrapper-dropdown{
     width: 78% !important;

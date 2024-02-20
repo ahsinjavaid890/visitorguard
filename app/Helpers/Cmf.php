@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Http;
 use Carbon\Carbon;
 class Cmf
 {
+    public static function getwebsite()
+    {
+        $data =  DB::table('select_websites')->where('id' ,3)->first();
+        return DB::table('site_settings')->where('smallname' ,$data->name)->first();
+    }
     public static function getsite()
     {
         return 'visitorguard';

@@ -260,7 +260,7 @@ function object_to_array($object)
                                                                   <tr height="7" style="height:7px"></tr>
                                                                   <tr>
                                                                      <td align="center">
-                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Life Advice Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Life Advice Inc®. All Rights Reserved.</p>
+                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Guard Inc®. All Rights Reserved.</p>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>
