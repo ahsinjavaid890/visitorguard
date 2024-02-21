@@ -13,9 +13,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-2 mb-3 alert alert-danger print-error-msg-login">
+                <!-- <div class="mt-2 mb-3 alert alert-danger print-error-msg-login">
                     <ul></ul>
-                </div>
+                </div> -->
                 <form id="quoteform" action="{{ url('ajaxquotes') }}" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $data->pro_id }}">

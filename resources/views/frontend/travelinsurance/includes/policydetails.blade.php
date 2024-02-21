@@ -169,14 +169,14 @@
             @else
             @if (in_array('yes', $a))
                 @if ($plan->plan_pdf_pre_existing)
-                    <a style=" font-size: 15px; margin-bottom: 15px; " href="{{ url('public/images') }}/{{ $plan->plan_pdf_pre_existing }}"
+                    <a style=" font-size: 15px; margin-bottom: 15px; " href="https://lifeadvice.ca/public/images/{{ $plan->plan_pdf_pre_existing }}"
                         class="pdf-additional-travelers">
                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Plan PDF for Pre Existing Person
                     </a>
                 @endif
                 <br>
                 @if ($plan->benifit_summary_pre_existing)
-                    <a style=" font-size: 15px; margin-bottom: 15px; " href="{{ url('public/images') }}/{{ $plan->benifit_summary_pre_existing }}"
+                    <a style=" font-size: 15px; margin-bottom: 15px; " href="https://lifeadvice.ca/public/images/{{ $plan->benifit_summary_pre_existing }}"
                         class="pdf-additional-travelers">
                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Benifits Summary of Pre Existing Person 
                     </a>
@@ -184,14 +184,14 @@
             @endif
             @if (in_array('No', $a))
                 @if ($plan->plan_pdf_without_pre_existing)
-                    <a style=" font-size: 15px; margin-bottom: 15px; " href="{{ url('public/images') }}/{{ $plan->plan_pdf_without_pre_existing }}"
+                    <a style=" font-size: 15px; margin-bottom: 15px; " href="https://lifeadvice.ca/public/images/{{ $plan->plan_pdf_without_pre_existing }}"
                         class="pdf-additional-travelers">
                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Plan PDF for Without Pre Existing Person
                     </a>
                 @endif
                 <br>
                 @if ($plan->benifit_summary_without_pre_existing)
-                    <a style=" font-size: 15px; margin-bottom: 15px; " href="{{ url('public/images') }}/{{ $plan->benifit_summary_without_pre_existing }}"
+                    <a style=" font-size: 15px; margin-bottom: 15px; " href="https://lifeadvice.ca/public/images/{{ $plan->benifit_summary_without_pre_existing }}"
                         class="pdf-additional-travelers">
                         <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Benifits Summary of Without Pre Existing Person
                     </a>

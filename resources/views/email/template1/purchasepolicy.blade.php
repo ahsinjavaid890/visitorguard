@@ -1,3 +1,6 @@
+@php
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+@endphp
 <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F4F7FA">
    <tbody>
       <tr>
@@ -27,7 +30,7 @@
                                                    <tbody>
                                                       <tr>
                                                          <td style="font-size:6px;line-height:10px;padding:12px 0px 16px 16px" valign="top" align="left">
-                                                            <img border="0" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;width:200px" width="200" alt="" src="https://lifeadvice.ca/public/images/118135255.png" height="41" class="CToWUd" data-bit="iit">
+                                                            <img border="0" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;width:200px" width="200" alt="" src="{{ url('public/images') }}/{{ $settings->header_logo }}" height="41" class="CToWUd" data-bit="iit">
                                                          </td>
                                                       </tr>
                                                    </tbody>
@@ -657,13 +660,13 @@
                                                       <tr>
                                                          <td style="padding:0px 30px 0px 30px;line-height:28px;text-align:inherit" height="100%" valign="top" bgcolor="" role="module-content">
                                                             <div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting Visitor Guard Insurance Inc. We're here to support you every step of the way.
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting Visitor Insure Insurance Inc. We're here to support you every step of the way.
                                                                   </span>
                                                                </div>
                                                                <div style="font-family:inherit;text-align:inherit"><br></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Sincerely,  </span></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><br></div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Visitor Guard</span></div>
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Visitor Insure</span></div>
                                                                <div></div>
                                                             </div>
                                                          </td>
@@ -808,7 +811,7 @@
                                                                   <tr height="7" style="height:7px"></tr>
                                                                   <tr>
                                                                      <td align="center">
-                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Guard Inc®. All Rights Reserved.</p>
+                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">{{ $settings->site_address }}<br> {{ $settings->site_name }}. All Rights Reserved.</p>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>

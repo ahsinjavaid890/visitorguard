@@ -349,14 +349,14 @@ if($second_show == '1' && $second_total_price > 0){
                         <i class="fa fa-exclamation-circle dh-toggle" onclick="showdetails({{ 11+$second_deductible.$second_plan_id }})" aria-hidden="true"></i>
                     </div>
                     <div class="logo"style="margin-left: 20%;">
-                        <img style="width: 200px;height: 80px;" class="img-thumbnail" src="{{ url('public/images') }}/{{ $second_comp_logo }}" />
+                        <img style="width: 200px;height: 80px;" class="img-thumbnail" src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" />
                     </div>
                 </div>
             </div>
 
 
             <div class="col-md-4 col-xs-6 logogd mobile-deisply-none" style="border:0px solid #000;  text-align:center; padding: 5px 0; text-align: center ">
-                <img style="width: 200px;height: 80px;" class="img-thumbnail" src="{{ url('public/images') }}/{{ $second_comp_logo }}" />
+                <img style="width: 200px;height: 80px;" class="img-thumbnail" src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" />
             </div>
 
 

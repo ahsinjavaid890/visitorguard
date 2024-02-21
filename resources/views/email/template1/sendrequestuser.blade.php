@@ -1,3 +1,6 @@
+@php
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+@endphp
 <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F4F7FA">
 <tbody>
 <tr>
@@ -27,7 +30,7 @@
 <tbody>
 <tr>
 <td style="font-size:6px;line-height:10px;padding:12px 0px 16px 16px" valign="top" align="left">
-<img border="0" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;width:200px" width="200" alt="" src="https://lifeadvice.ca/public/images/118135255.png" height="41" class="CToWUd" data-bit="iit">
+<img border="0" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px;width:200px" width="200" alt="" src="{{ url('public/images') }}/{{ $settings->header_logo }}" height="41" class="CToWUd" data-bit="iit">
 </td>
 </tr>
 </tbody>
@@ -1064,7 +1067,7 @@ Contact US<span style="margin-left:10px"><img width="17" style="width:17px" src=
 <tr height="7" style="height:7px"></tr>
 <tr>
 <td align="center">
-<p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Guard Inc®. All Rights Reserved.</p>
+<p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Insure Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Insure Inc®. All Rights Reserved.</p>
 </td>
 </tr>
 </tbody>

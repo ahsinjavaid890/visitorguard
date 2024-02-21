@@ -385,11 +385,11 @@ if($second_show == '1' && $second_total_price > 0){
                 </div>
                 <div class="col-md-3 p-l-z-o-m p-r-z-o-m">
                     <div class="qoute-logo display-none-on-mobile mt-3">
-                        <img src="{{ url('public/images') }}/<?php echo $second_comp_logo; ?>">
+                        <img src="https://lifeadvice.ca/public/images/<?php echo $second_comp_logo; ?>">
                     </div>
                     <div class="display-show-on-mobile" style="display:none;">
                         <div class="qoute-logo">
-                            <img src="{{ url('public/images') }}/<?php echo $second_comp_logo; ?>">
+                            <img src="https://lifeadvice.ca/public/images/<?php echo $second_comp_logo; ?>">
                         </div>
                     </div>
                     <div class="total-price-traveller">

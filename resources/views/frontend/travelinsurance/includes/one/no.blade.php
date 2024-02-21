@@ -335,10 +335,10 @@ if($second_show == '1' && $second_total_price > 0){
         <div class="row plan-details mb-0 ml-1 deductable-<?php echo $second_deductible; ?>"
             style="display: <?php if($second_deductible == '1000'){ echo 'flex'; } else if($havethousand == 'no' && $second_deductible == '0'){ echo 'flex'; } else { echo 'none'; } ?>; margin-top:0; margin-left:1px; margin-right:0; margin-bottom 0px !important;border-bottom: 1px solid #0084c1;">
             <div class="col-md-3 col-xs-6 text-center mobile-deisply-none" style="padding-top: 20px;padding-left: 0;padding-right: 0;">
-                <img src="{{ url('public/images') }}/{{ $second_comp_logo }}" class="img-responsive img-thumbnail" width="200" />
+                <img src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" class="img-responsive img-thumbnail" width="200" />
             </div>
             <div class="col-md-3 col-xs-6 text-center mobile-deisply-show" style="display: none;padding-left: 0;padding-right: 0;">
-                <img src="{{ url('public/images') }}/{{ $second_comp_logo }}" class="img-responsive" width="200" />
+                <img src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" class="img-responsive" width="200" />
             </div>
             <div class="col-md-2 col-xs-6 mobile-deisply-none text-center benefit_padding"
                 style="font-size: 14px;color: #333;">${{number_format($second_sum_insured)}} Coverage

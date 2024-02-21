@@ -336,10 +336,10 @@ if($second_show == '1' && $second_total_price > 0){
       <div class="row plan-details   deductable-{{ $second_deductible }}" style="border:1px solid #c0c0c0; margin-bottom: 5px !important; padding:10px;  display: <?php if($second_deductible == '1000'){ echo 'flex'; } else if($havethousand == 'no' && $second_deductible == '0'){ echo 'flex'; } else { echo 'none'; } ?>;">
          <div class="col-md-1 col-xs-1 text-center mobilepaddingdecrease" style="width: auto;padding: 35px 0px 0 10px;">
             <a href="javascript:void(0)" class="dh-toggle"  onclick="showdetails({{ 11+$second_deductible.$second_plan_id }})" aria-hidden="true"><i style="color: #2b3481;font-size: 21px;" class="fa fa-info-circle" aria-hidden="true"></i></a>
-            <img src="{{ url('public/images') }}/{{ $second_comp_logo }}" style="width: 200px;height: 80px;display: none;" class="mobile-deisply-show" />
+            <img src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" style="width: 200px;height: 80px;display: none;" class="mobile-deisply-show" />
          </div>
          <div class="col-md-3 col-xs-11 text-center mt-2 mobile-deisply-none">
-            <img src="{{ url('public/images') }}/{{ $second_comp_logo }}" style="width: 200px;height: 80px;" class="img-thumbnail" />
+            <img src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" style="width: 200px;height: 80px;" class="img-thumbnail" />
          </div>
          <div class="col-md-3 col-xs-8 text-left mobilepeddindecreasetwo" @if($second_monthly_two == '1') style="padding: 5px 0px 0px 15px;" @else style="padding: 25px 0px 0px 15px;" @endif>
             <h1 style="color:#223b74;font-size:32px; font-weight:bold;line-height: normal;">$<?php echo number_format($second_total_price,2); ?><small style=" font-size: 10px;">({{ $second_number_travelers }} Traveller @if($second_number_travelers > 1)'s @endif)</small></h1>

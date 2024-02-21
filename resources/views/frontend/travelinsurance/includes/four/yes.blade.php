@@ -258,13 +258,13 @@ if($show == '1' && $total_price > 0){
                         <i class="fa fa-exclamation-circle dh-toggle"onclick="showdetails({{ 1+$deductible.$plan_id }})"aria-hidden="true"></i>
                     </div>
                     <div class="logo"style="margin-left: 20%;">
-                        <img style="width: 200px;height: 80px;" class="img-thumbnail" src="{{ url('public/images') }}/{{ $comp_logo }}" />
+                        <img style="width: 200px;height: 80px;" class="img-thumbnail" src="https://lifeadvice.ca/public/images/{{ $comp_logo }}" />
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4 col-xs-6 logogd mobile-deisply-none" style="border:0px solid #000;  text-align:center; padding: 5px 0; text-align: center ">
-                <img style="width: 200px;height: 80px;" class="img-thumbnail" src="{{ url('public/images') }}/{{ $comp_logo }}" />
+                <img style="width: 200px;height: 80px;" class="img-thumbnail" src="https://lifeadvice.ca/public/images/{{ $comp_logo }}" />
             </div>
             <div class="col-md-4 col-xs-6 text-center" id="price">
                 <h3 style="display:inline;color: #000;font-weight: bold;    font-size: 30px;">

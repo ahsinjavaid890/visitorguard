@@ -334,7 +334,7 @@ if($second_show == '1' && $second_total_price > 0){
 <div class="coverage-amt mt-2 pricearray pricearray{{ $second_comp_id }}{{ $second_total_price }} coverage-amt-<?php echo $second_sum_insured; ?>" style=" display: <?php if($request->sum_insured2 == $second_sum_insured ){ echo 'block'; } else { echo 'none'; } ?>;">
 <div class="row plan-details   deductable-<?php echo $second_deductible; ?>" style="display: <?php if($second_deductible == '1000'){ echo 'flex'; } else if($havethousand == 'no' && $second_deductible == '0'){ echo 'flex'; } else { echo 'none'; } ?>; padding: 0;">
 <div class="col-md-4 padding-botom-zero-on-mobile" style="padding-bottom: 10px; text-align:center;padding-left: 0;">
-   <img style="width:auto; max-height: 110px;" src="{{ url('public/images') }}/{{ $second_comp_logo }}" class="img-responsive" />
+   <img style="width:auto; max-height: 110px;" src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" class="img-responsive" />
    <div onclick="showdetails({{ 11+$second_deductible.$second_plan_id }})"><a href="javascript:void(0)" style="display:block; padding:5px;color: #337ab7;"><i class="fa fa-info-circle"></i> Policy Details</a></div>
 </div>
 <div class="col-md-5 hidden-xs padding-top-zero-on-mobile mobile-deisply-none" style="font-size:11px;padding-top: 20px;">

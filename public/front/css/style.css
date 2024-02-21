@@ -15097,3 +15097,48 @@ ul .child-list li a {
 .mainhead{
     margin-top: 20px;
 }
+
+.buynowrow {
+    clear: both;
+    margin: 20px 0 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+}
+.buynodropdownsectioncolsix {
+    background: #f9f9f9;
+    margin-left: 15px;
+}
+.buynodropdownsectioncolsix .submit-btn {
+    background-color: #2b3481;
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border-bottom: 2px solid #999;
+    box-shadow: none;
+}
+.summaryheading {
+    font-weight: 700;
+    color: #12b48b;
+}
+.summarydata, .summaryheading {
+    font-size: 13px;
+    line-height: 20px;
+}
+.summarydata {
+    font-weight: 600;
+    color: #2b3481;
+}
+
+.login_wrap {
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    border-radius: 15px;
+}
+.login-page {
+    text-align: center;
+}

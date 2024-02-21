@@ -352,13 +352,13 @@ if($second_show == '1' && $second_total_price > 0){
                         
                     </div>
                     <div class="col-md-3 hidden-xs col-xs-12 text-center mobilepaddingtop" style="padding-top: 15px;">
-                        <img style="width:auto;border: 2px solid #c0c0c0;padding: 15px;max-height: 80px;margin-top: -40px;background: #FFF;"src="{{ url('public/images') }}/<?php echo $second_comp_logo; ?>"
+                        <img style="width:auto;border: 2px solid #c0c0c0;padding: 15px;max-height: 80px;margin-top: -40px;background: #FFF;"src="https://lifeadvice.ca/public/images/<?php echo $second_comp_logo; ?>"
                             class="img-responsive" />
                         <button onclick="$('.buynow_{{ $second_deductible.$second_plan_id+13 }}').slideToggle();"
                             class="buynow-btn mobile-deisply-none" data-value="<?php echo $second_plan_id; ?>" name="buynow"style="color:#FFF;margin-top: 10px;width: 100%;border-radius: 5px;font-weight: bold;">Buy Now </button>
                     </div>
                     <div class="col-md-3 visible-xs col-xs-12 text-center" style="padding-top: 15px;">
-                        <img style="width:auto;border: 2px solid #c0c0c0;padding: 15px;max-height: 80px;margin-top: 10px;background: #FFF;" src="{{ url('public/images') }}/{{ $second_comp_logo }}" class="img-responsive" />
+                        <img style="width:auto;border: 2px solid #c0c0c0;padding: 15px;max-height: 80px;margin-top: 10px;background: #FFF;" src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" class="img-responsive" />
                     </div>
                     <div class="col-md-3 col-xs-6 hidden-xs text-center mobile-deisply-none" style="padding-top: 15px;">
                         <h3 style="margin:0;color: #555;font-weight: bold;font-size: 22px;">${{ $second_deductible }}<br /><small style="font-size: 13px;font-weight: normal;display: block;margin-top: 5px;">Deductible</small>

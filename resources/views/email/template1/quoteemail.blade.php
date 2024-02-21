@@ -1,3 +1,6 @@
+@php
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+@endphp
 <?php
 
 $arrr = $mailitem;
@@ -36,7 +39,7 @@ function object_to_array($object)
                                                       <table border="0" cellpadding="0" cellspacing="0" role="module" style="table-layout:fixed" width="100%">
                                                          <tbody>
                                                             <tr>
-                                                               <td align="left" style="font-size:6px;line-height:10px;padding:12px 0px 14px 15px" valign="top"><img alt="" border="0" height="41" src="https://lifeadvice.ca/public/images/118135255.png" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px" width="200" class="CToWUd" data-bit="iit"></td>
+                                                               <td align="left" style="font-size:6px;line-height:10px;padding:12px 0px 14px 15px" valign="top"><img alt="" border="0" height="41" src="{{ url('public/images') }}/{{ $settings->header_logo }}" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px" width="200" class="CToWUd" data-bit="iit"></td>
                                                             </tr>
                                                          </tbody>
                                                       </table>
@@ -260,7 +263,7 @@ function object_to_array($object)
                                                                   <tr height="7" style="height:7px"></tr>
                                                                   <tr>
                                                                      <td align="center">
-                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Guard Inc®. All Rights Reserved.</p>
+                                                                        <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Insure Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Insure Inc®. All Rights Reserved.</p>
                                                                      </td>
                                                                   </tr>
                                                                </tbody>

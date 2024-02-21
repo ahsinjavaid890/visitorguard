@@ -339,7 +339,7 @@ if($second_show == '1' && $second_total_price > 0){
             style="border:1px solid #c0c0c0;margin-bottom: 20px; display: <?php if($second_deductible == '1000'){ echo 'flex'; } else if($havethousand == 'no' && $second_deductible == '0'){ echo 'flex'; } else { echo 'none'; } ?>;">
             <div class="col-md-3" style="border:0px solid #000;  text-align:center;padding: 5px 0; ">
                 <i class="fa fa-exclamation-circle dh-toggle" onclick="showdetails({{ 11+$second_deductible.$second_plan_id }})" style="cursor:pointer;position: absolute;top: 40%;left: 0;" aria-hidden="true"></i>
-                <img style="min-height:20px; margin-left: 41px;margin-top: 5px;" width="200" src="{{ url('public/images') }}/{{ $second_comp_logo }}" />
+                <img style="min-height:20px; margin-left: 41px;margin-top: 5px;" width="200" src="https://lifeadvice.ca/public/images/{{ $second_comp_logo }}" />
             </div>
 
             <div class="col-md-3" style="border:0px solid #000;font-size: 16px;padding: 5px 0; text-align:center;">

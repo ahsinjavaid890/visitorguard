@@ -253,7 +253,7 @@ if($show == '1' && $total_price > 0){
             <div class="col-md-12 col-xs-12 text-center"
                style="border: 0px solid #000;padding: 12px 0px 10px 5px;text-align: center;background: #EEE;border-radius: 10px;">
                <img style="max-height:60px; width:auto;"
-                  src="{{ url('public/images') }}/<?php echo $comp_logo; ?>" class="img-responsive" />
+                  src="https://lifeadvice.ca/public/images/<?php echo $comp_logo; ?>" class="img-responsive" />
             </div>
             <div class="col-md-12 col-xs-12 text-center">
                <button class="btn btn-default dh-toggle" onclick="showdetails({{ 1+$deductible.$plan_id }})" aria-hidden="true"
@@ -328,7 +328,7 @@ if($show == '1' && $total_price > 0){
         <div class="col-md-12 mobile-deisply-show mt-1" style="display: none;background-color: white;">
             <div class="logoandpricerow mt-2" style="display: flex;">
                 <div class="logoforseven" style="width: 50%;">
-                    <img style="max-height:60px; width:auto;" src="{{ url('public/images') }}/<?php echo $comp_logo; ?>" class="img-responsive" />
+                    <img style="max-height:60px; width:auto;" src="https://lifeadvice.ca/public/images/<?php echo $comp_logo; ?>" class="img-responsive" />
                 </div>
                 <div class="priceforseven" style="width: 50%;text-align: right;">
                     <h3 style="margin-bottom:0;line-height: normal;">

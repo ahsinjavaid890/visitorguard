@@ -1,3 +1,57 @@
+function calculateAge(dateofbirth , classname) {
+   var dob = dateofbirth;        
+   var dobRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2[0-9]|3[01])\/\d{4}$/;
+   if (!dobRegex.test(dob)) {
+       $('#'+classname).css('border-color', 'red');
+       return;
+   }
+   var parts = dob.split('/');
+   var month = parseInt(parts[0], 10);
+   var day = parseInt(parts[1], 10);
+   var year = parseInt(parts[2], 10);
+   var d = new Date();
+   var output = d.getFullYear()
+   var hundredyearsback = output-100;
+   var dobDate = new Date(year, month - 1, day); // Month is 0-indexed
+   var currentDate = new Date();
+   if (isNaN(dobDate.getTime()) || dobDate >= currentDate || year <= hundredyearsback) {
+       $('#'+classname).css('border-color', 'red');
+       $('#getqoutesubmitbutton').prop('disabled' , true);
+       return;
+   }else{
+       $('#'+classname).css('border-color', 'green');
+       $('#getqoutesubmitbutton').prop('disabled' , false);
+   }
+}
+function printErrorMsglogin (msg) {
+    $(".print-error-msg-login").find("ul").html('');
+    $(".print-error-msg-login").css('display','block');
+    $.each( msg, function( key, value ) {
+        $(".print-error-msg-login").find("ul").append('<li>'+value+'</li>');
+    });
+}
+function countryState(id) {
+    $.ajax({
+        type: 'get',
+        url: 'getstates/'+id,
+        success: function(data) {
+            $('#statestoshow').html(data)
+        }
+    });                                  
+}
+function removecomparecard() {
+    $('.compare_header_top').hide();
+}
+
+function changefamilyyes(id) {
+    if (id == 'yes') {
+        document.getElementById('familyplan_temp').value = 'yes';
+        checkfamilyplan();
+    } else {
+        document.getElementById('familyplan_temp').value = 'no';
+        checkfamilyplan();
+    }
+}
 function secondnext() 
 {   
     var errorlength = $(".errorinputtest").length
@@ -249,20 +303,39 @@ function firstnext() {
      $('#firstnextorignal').click();
   }
 }
+ function validateEmail(email) {
 
+    
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test(email);
+}
 
+function checkemailcorection(id) {
+    if( !validateEmail($('#savers_email').val())) { 
+        $('#savers_emailerror').show();
+        $('#savers_emailerror').html('Please Enter Correct Email');
+     }else{
+        var url = 'https://mailbite.io/api/check?key=Mf8DT724QiKMmXOOBdftckJPM2RubTh0tcBY&email='+id;
+        $.get(url).done(function(data) { 
+          if(data.email_status == 'INVALID')
+          {
+            $('#savers_emailerror').show();
+            $('#savers_emailerror').html('Please Enter Valid Email');
+          }else{
+            $('#savers_emailerror').hide();
+            $('#savers_emailerror').html('');
+          }
+        });
+
+        
+     }
+}
 
 function thirdone() {
- if($('#savers_email').val() == '')
- {
-    $('#savers_emailerror').show();
-    $('#savers_emailerror').html('Please Enter Your Email');
- }else{
-    $('#savers_emailerror').hide();
-     $('#donefake').hide();
-     $('#doneoriginal').show();
-     $('#doneoriginal').click();
-  }
+ $('#savers_emailerror').hide();
+ $('#donefake').hide();
+ $('#doneoriginal').show();
+ $('#doneoriginal').click();
 }
 
 function calprimaryage(id){

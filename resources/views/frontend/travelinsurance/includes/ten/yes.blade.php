@@ -344,7 +344,7 @@ if($show == '1' && $total_price > 0){
 <li id="dv_{{$total_price}}" data-listing-price="{{$total_price}}" class="listing-item-new coverage-amt coverage-amt-<?php echo $sum_insured; ?>" style="display: <?php if($request->sum_insured2 == $sum_insured ){ echo 'block'; } else { echo 'none'; } ?>;">
   <div class="row deductable-<?php echo $deductible; ?>" style="display: <?php if($deductible == '1000'){ echo 'flex'; } else if($havethousand == 'no' && $deductible == '0'){ echo 'flex'; } else { echo 'none'; } ?>;">
      <div class="grid-list col-md-2 tab-img fold"  data-placement="left">
-         <img src="{{ url('public/images') }}/<?php echo $comp_logo; ?>">
+         <img src="https://lifeadvice.ca/public/images/<?php echo $comp_logo; ?>">
       </div>
      <div class="grid-list col-md-2" data-toggle="tooltip" data-placement="left" title="1. In- transit period is not covered in the policy."><?php echo $deductible;?> Per Claim</div>
      <div class="grid-list col-md-2" data-toggle="tooltip" data-placement="left" title="1. In- transit period is not covered in the policy."><span class="price-list"><span>$<?php echo number_format($total_price,2);?><span> CAD</span></span></span> </div>

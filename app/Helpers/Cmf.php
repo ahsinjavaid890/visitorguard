@@ -18,9 +18,34 @@ class Cmf
         $data =  DB::table('select_websites')->where('id' ,3)->first();
         return DB::table('site_settings')->where('smallname' ,$data->name)->first();
     }
+    public static function checkallrates($ages_array , $rates_table_name , $deduct_plan_id , $sumamt)
+    {
+        $items = array();
+        foreach($ages_array as $person_age)
+        {
+            $p_planrates =  DB::table($rates_table_name)->where('plan_id' , $deduct_plan_id)->where('maxage', '>=', $person_age)->where('minage', '<=', $person_age)->where('sum_insured' , $sumamt)->get();
+            if($p_planrates->count() > 0)
+            {
+                $items[] = 1;
+            }else{
+                $items[] = 0;
+            }
+        }
+        if (in_array("0", $items))
+        { 
+            return 0; 
+        } else 
+        {
+            return 1; 
+        }
+    }
     public static function getsite()
     {
-        return 'visitorguard';
+        return 'visitorinsure';
+    }
+    public function directoryurl()
+    {
+        return 'https://lifeadvice.ca/public/images';
     }
     public static function sendimagetodirectory($imagename)
     {
@@ -103,7 +128,7 @@ class Cmf
     }
     public static function get_store_value($value)
     {
-        return DB::table('site_settings')->where('id' , 1)->get()->first()->$value;
+        return DB::table('site_settings')->where('smallname' , 'visitorguard')->get()->first()->$value;
     }
     public static function travelpages()
     {
