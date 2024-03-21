@@ -15,7 +15,7 @@
     <link href="{{ url('public/front/visitorguard/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ url('public/front/visitorguard/css/style.css') }}" rel="stylesheet">
-
+    <script src="{{ url('public/front/visitorguard/js/jquery.min.js') }}"></script>
 
    
 
@@ -26,7 +26,7 @@
     @include('frontend.includes.header')
     @yield('content')
     @include('frontend.includes.footer')
-    <script src="{{ url('public/front/visitorguard/js/jquery.min.js') }}"></script>
+    
     <script src="{{ url('public/front/visitorguard/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('public/front/visitorguard/js/bootnavbar.js') }}"></script>
     <script>

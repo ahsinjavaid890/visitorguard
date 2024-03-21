@@ -41,6 +41,8 @@ Route::POST('applystepone', [SiteController::class, 'applystepone']);
 Route::get('step-two/{id}', [SiteController::class, 'steptwotoshow']);
 Route::POST('applysteptwo', [SiteController::class, 'applysteptwo']);
 
+Route::get('logout', [SiteController::class, 'logout']);
+
 Route::get('step-three/{id}', [SiteController::class, 'stepthreetoshow']);
 Route::get('backonestep/{id}', [SiteController::class, 'backonestep']);
 Route::POST('completeandpurchase', [SiteController::class, 'completeandpurchase']);

@@ -36,6 +36,12 @@ class SiteController extends Controller
     {
         return view('frontend.homepage.index');
     }
+    public function logout()
+    {
+        Auth::logout();
+        $url = url('');
+        return Redirect::to($url);
+    }
     public function checkadditionaltravelers(Request $request)
     {
         foreach($request->ages as $r) {
