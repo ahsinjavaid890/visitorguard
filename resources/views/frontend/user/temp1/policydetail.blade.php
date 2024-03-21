@@ -1,11 +1,15 @@
 @extends('frontend.layouts.main')
 @section('tittle')
 <title>User Dashboard – Get Tips, Online Quotes for Life Insurance</title>
+<link rel="canonical" href="{{Request::url()}}">
 @endsection
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/css/udashboad.css')}}">
 <style type="text/css">
+   .headlogo .navbar-dark a{
+      color: black;
+   }
    body{
       background-color:rgb(246 248 251);
    }
@@ -16,9 +20,6 @@
        padding: 32px 24px;
        border-radius: 16px;
        
-   }
-   .headlogo .navbar-dark a{
-      color:black;
    }
    .col-md-9 .card{
       border-left: 5px solid #2b3481;
@@ -155,7 +156,7 @@
    .purchaseconfermationdownload i{
       margin-right: 10px;
    }
-   @media only screen and (max-width:600px){
+    @media only screen and (max-width:600px){
       .claim_inforamtionmobile{
          display: flex !important;
       }
@@ -196,7 +197,18 @@
                         </p>
                      </div>
                      <div class="row mt-5">
+                        <div class="col-md-12">
+                           <div class="user_data">
+                              <label>Insurance Company</label>
+                              <h5>{{ $data->company_name }}</h5>
+                           </div>
+                        </div>
                         <div class="col-md-6">
+                           <div class="user_data">
+                              <label>Policy Number</label>
+                              <h5>@if($data->policy_number) {{ $data->policy_number }} @else Not Asigned @endif</h5>
+                           </div>
+                           
                            <div class="user_data">
                               <label>Policy Name</label>
                               <h5>{{ DB::table('wp_dh_insurance_plans')->where('id' , $data->plan_id)->first()->plan_name }}</h5>
@@ -233,13 +245,22 @@
                            <div class="col-md-6">
                               <div class="effiate_date">
                                  <label>Effective Date</label>
+                                 @if(DB::table('sale_change_requests')->where('reffrence_number'  ,$data->reffrence_number)->orderby('id' , 'desc')->where('request_status' , 'Approved')->first())
+                                 <h6 style="color:white;">{{ Cmf::date_format(DB::table('sale_change_requests')->where('reffrence_number'  ,$data->reffrence_number)->orderby('id' , 'desc')->where('request_status' , 'Approved')->first()->new_effective_date) }}</h6>
+                                 @else
                                  <h6 style="color:white;">{{ Cmf::date_format($data->start_date) }}</h6>
+                                 @endif
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="expire_date">
                                  <label>Expire On</label>
+                                 
+                                 @if(DB::table('sale_change_requests')->where('reffrence_number'  ,$data->reffrence_number)->orderby('id' , 'desc')->where('request_status' , 'Approved')->first())
+                                 <h6 class="text-danger">{{ Cmf::date_format(DB::table('sale_change_requests')->where('reffrence_number'  ,$data->reffrence_number)->orderby('id' , 'desc')->where('request_status' , 'Approved')->first()->new_return_date) }}</h6>
+                                 @else
                                  <h6 class="text-danger">{{ Cmf::date_format($data->end_date) }}</h6>
+                                 @endif
                               </div>
                            </div>
                         </div>
@@ -273,12 +294,21 @@
                      <hr>
                      @endif
                      <h3 style="color: #2b3481!important">Claims Information</h3>
-                     <p>Visitor Guard Insurance Inc believes that submitting life insurance claims should be a seamless, hassle-free process. We have got you covered. We are devoted to ensuring the peace of mind of our policyholders because we too understand the value of life's security.</p>
+                     <p>Visitor Guard Insurance Inc believes that submitting {{ $data->product_name }} claims should be a seamless, hassle-free process. We have got you covered. We are devoted to ensuring the peace of mind of our policyholders because we too understand the value of life's security.</p>
                      <h3 style="color: #2b3481!important">How to File Claims</h3>
                      <p>All claims must be sent in writing to Visitor Guard Insurance Inc, along with necessary supporting documentation and receipts. These supporting documents should include the insured’s ID, copies of all relevant bills, detailed descriptions of services used, and a completed claim form</p>
                      <h3 style="color: #2b3481!important">Claim form</h3>                      
                      <p>Our dedicated claims team is always available to provide guidance and assistance throughout the process, ensuring that your claim is handled swiftly and sympathetically.</p>
                      <p>At Visitor Guard Insurance Inc, we're more than just an insurance provider; we're here to support you every step of the way.</p>
+                     @php
+                        $getplan = DB::table('wp_dh_insurance_plans')->where('id' , $data->plan_id)->first();
+                        $getcompany = DB::table('wp_dh_companies')->where('comp_id' , $getplan->insurance_company)->first();
+                     @endphp
+                     @if($getcompany->claimlink)
+                     <a target="_blank" href="{{ $getcompany->claimlink }}">Claim Link of {{ $getcompany->comp_name }}</a>
+                     @else
+                     <a  download="Claim Form of {{ $getcompany->comp_name }} | Reffrence ID : {{ $data->reffrence_number }}" href="{{ url('public/images') }}/{{ $getcompany->claimform }}"> <i class="fa fa-download"></i> Claim Form of {{ $getcompany->comp_name }}</a>
+                     @endif
                   </div>
                </div>
       </div>
@@ -334,7 +364,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Policy Number</label>
-                     <input type="text" class="form-control" name="policy_number" required>
+                     <input type="text" readonly class="form-control" value="{{ $data->policy_number }}" name="policy_number" required>
                   </div>
                </div>
             </div>
@@ -367,11 +397,16 @@
                </div>
                <script>
                   function getdate(id) {
-                    var someDate = new Date(id);
-                    var numberOfDaysToAdd = {{ $numberofdays }};
-                    someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
-                    var date = someDate.getMonth() + '/' + someDate.getDate() + '/' + someDate.getFullYear();
-                    $('#newreturndate').val(date);
+                     var numberOfDaysToAdd = {{ $numberofdays }};
+                      var currentDate = new Date(id);
+                      var newDate = new Date(currentDate);
+                      newDate.setDate(newDate.getDate() + numberOfDaysToAdd);
+                      var formattedNewDate = newDate.toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: '2-digit',
+                          day: '2-digit'
+                      });
+                      $("#newreturndate").val(formattedNewDate);
                   }
                </script>
                <div class="col-md-6">
@@ -444,7 +479,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Policy Number</label>
-                     <input type="text" class="form-control" name="policy_number" required>
+                     <input type="text" readonly class="form-control"  value="{{ $data->policy_number }}" name="policy_number" required>
                   </div>
                </div>
             </div>
@@ -513,7 +548,7 @@
                <div class="col-md-6">
                   <div class="form-group">
                      <label>Policy Number</label>
-                     <input required placeholder="Enter Policy Number" type="text" class="form-control" name="policy_number">
+                     <input required readonly placeholder="Enter Policy Number"  value="{{ $data->policy_number }}" type="text" class="form-control" name="policy_number">
                   </div>
                </div>
             </div>

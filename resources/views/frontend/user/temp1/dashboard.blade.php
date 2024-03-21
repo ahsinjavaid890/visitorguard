@@ -1,9 +1,13 @@
 @extends('frontend.layouts.main')
 @section('tittle')
 <title>Customer Portal</title>
+<link rel="canonical" href="{{Request::url()}}">
 @endsection
 @section('content')
 <style type="text/css">
+   .headlogo .navbar-dark a{
+      color: black;
+   }
    body{
       background-color:rgb(246 248 251);
    }
@@ -103,9 +107,6 @@
     font-weight: 700;
     margin-bottom: 1rem!important;
    }
-   .headlogo .navbar-dark a{
-      color:black;
-   }
 </style>
 <div class="container mb-5" style="margin-top: 8rem;">
    <div class="row mt-5">
@@ -121,19 +122,18 @@
          @foreach($sales as $r)
          <div class="card mb-3">
             <div class="d-flex justify-content">
-               <h3>{{ DB::Table('traveler_sale_informations')->where('id'  ,$r->id)->first()->f_name }} {{  DB::Table('traveler_sale_informations')->where('id'  ,$r->id)->first()->l_name }}</h3>
-               @if($r->status == 'pending')
+               <h3></h3>
+               @if($r->status == 'Pending')
                <span class="badge badge-warning">{{ $r->status }}</span>
                @endif
-               @if($r->status == 'rejected')
+               @if($r->status == 'Cancel')
                <span class="badge badge-danger">{{ $r->status }}</span>
                @endif
                @if($r->status == 'Approved')
                <span class="badge badge-success">{{ $r->status }}</span>
                @endif
             </div>
-            <div style="color: #3f3e81;
-    font-weight: 900;">{{ DB::table('wp_dh_products')->where('pro_id' , $r->product_id)->first()->pro_name }}</div>
+            <div style="color: #3f3e81;font-weight: 900;">{{ DB::table('wp_dh_products')->where('pro_id' , $r->product_id)->first()->pro_name }}</div>
             <div class="d-flex">
                <div class="date">
                  <span> Effective : </span>{{ Cmf::date_format($r->start_date) }}
@@ -142,8 +142,20 @@
                  <span> To : </span>{{ Cmf::date_format($r->end_date) }}
                </div>
             </div>
+            @if($r->status == 'Approved')
+            <div class="d-flex">
+               <div class="date">
+                 <span> Policy Number : </span>{{ $r->policy_number }}
+               </div>
+            </div>
+            <div class="d-flex">
+               <div class="date">
+                 <span> Purchase Confirmation Document : </span> <a href="{{ url('public/images') }}/{{ $r->policydocument }}"><i class="fa fa-download"></i> Download</a>
+               </div>
+            </div>
+            @endif
             <div class="d-flex policyid justify-content">
-               <span>Reffrence Id: {{$r->reffrence_number}} </span>
+               <span>Reffrence Id: {{$r->reffrence_number}} </span> 
                <a href="{{ url('policydetail') }}/{{ $r->id }}">View Details</a>
             </div>
          </div>

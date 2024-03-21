@@ -1,6 +1,7 @@
 @extends('frontend.layouts.main')
 @section('tittle')
     <title>Customer Portal</title>
+    <link rel="canonical" href="{{Request::url()}}">
 @endsection
 @section('content')
     <style type="text/css">
@@ -20,9 +21,6 @@
         .col-md-9 .card {
             border-left: 5px solid #2b3481;
         }
-        .headlogo .navbar-dark a{
-      color:black;
-   }
 
         .heading-2 {
             color: #2b3481 !important;
@@ -208,8 +206,7 @@
                     <div class="box">
                         <div class="d-flex">
 
-                            <h3>{{ DB::Table('traveler_sale_informations')->where('id', $r->id)->first()->f_name }}
-                                {{ DB::Table('traveler_sale_informations')->where('id', $r->id)->first()->l_name }}</h3>
+                            
                             @if ($r->status == 'pending')
                                 <span class="badge badge-warning">{{ $r->status }}</span>
                             @endif
