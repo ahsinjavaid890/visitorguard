@@ -1,9 +1,8 @@
-@extends('frontend.layouts.mainguard')
+@extends('frontend.layouts.main')
 @section('tittle')
 <title>Apply</title>
 @endsection
 @section('content')
-<script src="{{ url('public/front/visitorguard/js/jquery.min.js') }}"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYUTCpyRfNY8Und6oYaKi5Vkqip7OIWEU&libraries=geometry,places&v=weekly"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('public/front/css/select2.min.css')}}">
@@ -14,15 +13,10 @@
 <script type="text/javascript" src="{{ url('public/front/tabs/js/selecttwo.js')}}"></script>
 <style type="text/css">
 	.headlogo .navbar-dark a{
-		color: black !important;
+		color: black;
 	}
-	.headlogo .dropdown-menu a{
-		color: white !important;
-	}
-</style>
-<style type="text/css">
 	.tabshead{
-		margin-top: 67px;
+		margin-top: 100px;
 	}
 	.wrapper-dropdown{
 		top: 22px !important;
@@ -561,7 +555,7 @@
 
 			<!-- body modal -->
 			<div class="modal-body">
-				<p style="font-weight: normal !important;text-align: justify;font-size: 12px;">Please read carefully before submitting the application: Important. You have applied for travel insurance offered by: <span id="company3">Ingle Assurance</span> insurance and You certify that you are at least 18 years of age. You certify that the information provided on this form is true and accurate, and understand that such information is material to the risk, and constitutes the basis of any coverage offered. You fully understand that if any of your answers are untrue or incorrect, then coverage offered will be null and void. You understand that the Policy contains important terms and conditions of coverage including exclusions and other limitations. It is your responsibility to review the insurance policies in detail prior to purchase and / or upon initial receipt of the policy. You may also request information directly from our providers.or call us at 855-500-8999 or send us a request by Email contact@visitorinsure.ca
+				<p style="font-weight: normal !important;text-align: justify;font-size: 12px;">Please read carefully before submitting the application: Important. You have applied for travel insurance offered by: <span id="company3">Ingle Assurance</span> insurance and You certify that you are at least 18 years of age. You certify that the information provided on this form is true and accurate, and understand that such information is material to the risk, and constitutes the basis of any coverage offered. You fully understand that if any of your answers are untrue or incorrect, then coverage offered will be null and void. You understand that the Policy contains important terms and conditions of coverage including exclusions and other limitations. It is your responsibility to review the insurance policies in detail prior to purchase and / or upon initial receipt of the policy. You may also request information directly from our providers.or call us at 855-500-8999 or send us a request by Email contact@lifeadvice.ca
 				<b>LIMITED LIABILITY:</b><br> 
 				NEITHER VISITOR GUARD, ITS EMPLOYEES, DIRECTORS, OFFICERS AND AFFILIATED COMPANIES, NOR ANY OTHER PARTY INVOLVED IN CREATING, PRODUCING, OR DELIVERING THIS SITE, SHALL BE LIABLE FOR ANY LOSS, HARM OR DAMAGE, INCLUDING WITHOUT LIMITATION, ANY DIRECT, INDIRECT, DAMAGES, HOWSOEVER CAUSED, TO ANY PERSON AS A CONSEQUENCE OF, OR ARISING OUT OF, ACCESS TO, OR USE OF, THIS WEBSITE OR ANY MATERIAL FROM THIS WEBSITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF THESE DAMAGES. USE OF THIS WEBSITE, AND ANY WEBSITES LINKING TO OR FROM THIS WEBSITE, IS ENTIRELY AT THE USER RISK.<br>
 				<br>
@@ -576,7 +570,7 @@
 				<br>
 				<i class="fa fa-map-marker"></i> Visitor Insure Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6
 				<br>
-				<i class="fa fa-envelope"></i> contact@visitorinsure.ca
+				<i class="fa fa-envelope"></i> contact@lifeadvice.ca
 				<br>
 				<i class="fa fa-phone"></i> Tollfree: 855-500-8999
 				</p> 

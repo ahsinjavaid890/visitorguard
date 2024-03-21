@@ -540,7 +540,7 @@ if($second_show == '1' && $second_total_price > 0){
                             <div class="col-md-6">
                                 <div style="display: flex;position: relative;">
                                     <input required type="checkbox" id="applycheckbox<?php echo $second_newdeductibleforshow.$second_plan_id;?>12345" name="agree" style="height: auto;margin: 0;top: 6px;position: absolute;">
-                                    <label style="margin-left: 18px;" for="applycheckbox<?php echo $second_newdeductibleforshow.$second_plan_id;?>12345"> I give permission to visitorinsure.ca to transfer my quote information and contact details to <?php echo $second_comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a> </label>
+                                    <label style="margin-left: 18px;" for="applycheckbox<?php echo $second_newdeductibleforshow.$second_plan_id;?>12345"> I give permission to visitorguard.ca to transfer my quote information and contact details to <?php echo $second_comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a> </label>
                                 </div>
 
                             </div>

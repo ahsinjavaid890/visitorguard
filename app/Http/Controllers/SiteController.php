@@ -181,7 +181,7 @@ class SiteController extends Controller
         $reffrence_number = $policytype . $policy_number_temp;
         $newsale = new sales();
         $newsale->reffrence_number = $reffrence_number;
-        $newsale->website = 'lifeadvice';
+        $newsale->website = 'visitorguard';
         $newsale->sponsersname = $steptwo['sponsersname'];
         $newsale->sponsersemail = $steptwo['sponsersemail'];
         $newsale->email = $stepone['email'];
@@ -252,7 +252,7 @@ class SiteController extends Controller
             $newuser->save();
         }
 
-        $subject = 'Your Life Advice Policy Confirmation | ' . $reffrence_number;
+        $subject = 'Your Visitor Guard Policy Confirmation | ' . $reffrence_number;
         $temp = DB::table('site_settings')->where('smallname', 'lifeadvice')->first()->email_template;
         $purchasepolicyemailview = 'email.template' . $temp . '.purchasepolicy';
         $reviewemailview = 'email.template' . $temp . '.review';
@@ -336,7 +336,7 @@ class SiteController extends Controller
         Mail::send('email.compare', array('request'=>$request), function($message) use ($request) {
                $message->to($request->email)->subject
                   ('Comparisons of Insurance Plans');
-            $message->from('compare@lifeadvice.ca','LIFEADVICE');
+            $message->from('compare@visitorguard.ca','Visitor Guard');
         });
         return redirect()->back()->with('message', 'success');
     }
@@ -511,15 +511,26 @@ class SiteController extends Controller
             $newuser->status = 'active';
             $newuser->save();
         }
-        $subject = 'Your Life Advice Policy Confirmation | '.$reffrence_number;
-        Mail::send('email.purchasepolicy', ['request' => $request,'sale' => $newsale,'policy_number' => $reffrence_number], function($message) use($request , $subject){
-              $message->to($request->email);
-              $message->subject($subject);
+        
+        $subject = 'Your Visitor Guard Policy Confirmation | ' . $reffrence_number;
+        $temp = DB::table('site_settings')->where('smallname', 'lifeadvice')->first()->email_template;
+        $purchasepolicyemailview = 'email.template' . $temp . '.purchasepolicy';
+        $reviewemailview = 'email.template' . $temp . '.review';
+        Mail::send($purchasepolicyemailview, ['request' => $request, 'sale' => $newsale, 'policy_number' => $reffrence_number], function ($message) use ($newsale, $subject) {
+            $message->to($newsale->email);
+            $message->subject($subject);
         });
-        Mail::send('email.review', ['request' => $request,'sale' => $newsale], function($message) use($request , $subject){
-              $message->to($request->email);
-              $message->subject('Tell Us How We Did?');
+        Mail::send($reviewemailview, ['request' => $request, 'sale' => $newsale], function ($message) use ($newsale, $subject) {
+            $message->to($newsale->email);
+            $message->subject('Tell Us How We Did?');
         });
+        $subject = 'New Sale | Reffrence Number =  ' . $reffrence_number;
+        Mail::send($purchasepolicyemailview, ['request' => $request, 'sale' => $newsale, 'policy_number' => $reffrence_number], function ($message) use ($request, $subject) {
+            $message->to('admin@lifeadvice.ca');
+            $message->subject($subject);
+        });
+
+
         return view('frontend.formone.conferm')->with(array('request'=>$request));
     }
     public function applyplan(Request $request)
@@ -532,7 +543,7 @@ class SiteController extends Controller
                 $sale = new temproary_sales();
                 $sale->formdata = serialize($request->all());
                 $sale->temp_id= $request->temproary_sale;
-                $sale->website= 'lifeadvice';
+                $sale->website= 'visitorguard';
                 $sale->step= 1;
                 $sale->save();
                 $url = url('step-one').'/'.$request->temproary_sale;
@@ -543,7 +554,7 @@ class SiteController extends Controller
                 $sale = temproary_sales::find($tempr->id);
                 $sale->formdata = serialize($request->all());
                 $sale->temp_id= $request->temproary_sale;
-                $sale->website= 'lifeadvice';    
+                $sale->website= 'visitorguard';    
                 $sale->step= 1;
                 $sale->save();
                 $url = url('step-one').'/'.$request->temproary_sale;
