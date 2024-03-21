@@ -37,7 +37,7 @@
                 <b>In three simple steps you can purchase your policy, easily and securely, online.</b>
                 <p>
                     <input type="checkbox" name="agree" required=""> 
-                    I give permission to LifeAdvice.ca to transfer my quote information and contact details to {{ $second_comp_name }} in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our 
+                    I give permission to visitorinsure.ca to transfer my quote information and contact details to {{ $second_comp_name }} in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our 
                     <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a>
                 </p>
                 <button type="submit" class="submit-btn"><i class="fa fa-shopping-cart"></i> Buy Now</button>

@@ -580,7 +580,7 @@ if($show == '1' && $total_price > 0){
                             <div class="col-md-6">
                                 <div style="display: flex;position: relative;">
                                     <input required type="checkbox" id="applycheckbox<?php echo $newdeductibleforshow.$plan_id;?>" name="agree" style="height: auto;margin: 0;top: 6px;position: absolute;">
-                                    <label style="margin-left: 18px;" for="applycheckbox<?php echo $newdeductibleforshow.$plan_id;?>"> I give permission to LifeAdvice.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a> </label>
+                                    <label style="margin-left: 18px;" for="applycheckbox<?php echo $newdeductibleforshow.$plan_id;?>"> I give permission to visitorinsure.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a> </label>
                                 </div>
 
                             </div>

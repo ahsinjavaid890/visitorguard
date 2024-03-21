@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-12 add">
                <h5><i class="fa fa-envelope"></i> Email </h5>
-               <p>contact@lifeadvice.ca,</p>
+               <p>contact@visitorinsure.ca,</p>
             </div>
          </div>
          <div class="col-md-7 contactform" id="contact-result">
