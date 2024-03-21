@@ -91,7 +91,7 @@
          <div class="col-md-12">
             <h3 style="font-size: 30px;">Visitor Guard Online Support</h3>
             <br>
-            <p>Lifesadvice will be providing ongoing support and helpful articles that will provide our readers with all of the latest info on insurance products and requirements for travel and immigration. Through our resources and our skilled staff members, we can make insurance products more accessible and affordable than ever before.</p>
+            <p>Visitor Guard will be providing ongoing support and helpful articles that will provide our readers with all of the latest info on insurance products and requirements for travel and immigration. Through our resources and our skilled staff members, we can make insurance products more accessible and affordable than ever before.</p>
          </div>
       </div>
       <div class="col-md-6 pl-0 pr-0"><img src="{{ url('public/front/visitorguard/images/about3.jpg') }}" alt="life-advice-online-support"></div>
@@ -125,7 +125,7 @@
          <div class="col-md-8 offset-md-2">
             <h2 class="py-2">You Can Trust Us</h2>
             <p>
-               Lifesadvice sets to be your number one resource in Canada for a variety of single trip insurance, multi trip insurance, students insurance, visitor insurance and super visa insurance. We want to help Canadians and travelers from around the world to recognize the best insurance products that can deliver the greatest value in their market. With a wide range of insurance products that can suit almost any budget.<br>
+               Visitor Guard sets to be your number one resource in Canada for a variety of single trip insurance, multi trip insurance, students insurance, visitor insurance and super visa insurance. We want to help Canadians and travelers from around the world to recognize the best insurance products that can deliver the greatest value in their market. With a wide range of insurance products that can suit almost any budget.<br>
                <br>
                we can work with the top providers as well as handle the process of researching the insurance industry data line the best products as well as the top types of insurance that you may want to consider for your specific situation.
             </p>
@@ -137,7 +137,7 @@
    <div class="row align-items-center">
       <div class="col-md-6">
          <h3 style="font-size: 30px;">Our Plenge</h3>
-         <p class="pt-4">Lifesadvice will be providing ongoing support and helpful articles that will provide our readers with all of the latest info on insurance products and requirements for travel and immigration. Through our resources and our skilled staff members, we can make insurance products more accessible and affordable than ever before.</p>
+         <p class="pt-4">Visitor Guard will be providing ongoing support and helpful articles that will provide our readers with all of the latest info on insurance products and requirements for travel and immigration. Through our resources and our skilled staff members, we can make insurance products more accessible and affordable than ever before.</p>
          <br>
          <p>Travel insurance and medical insurance is something that we are extremely passionate about. These types of insurance products provide support to help individuals save millions of dollars every year. By spending just a few extra dollars on the cost of your trip or with our help and research we can identify the best products that can be used to protect you in an emergency or make sure that you are compliant with visa standards.</p>
       </div>
