@@ -5,12 +5,17 @@
 
 @section('content')
 <style type="text/css">
+    @media only screen and (max-width:600px){
+      .headlogo .dropdown-menu a{
+            color: black !important;
+        }
+   }
     .headlogo .navbar-dark a{
         color: black !important;
     }
-    .headlogo .dropdown-menu a{
+    /*.headlogo .dropdown-menu a{
         color: white !important;
-    }
+    }*/
 </style>
 <script src="js/mobiscroll.jquery.min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
