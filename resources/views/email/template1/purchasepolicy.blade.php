@@ -1,5 +1,5 @@
 @php
-    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
 @endphp
 <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F4F7FA">
    <tbody>
@@ -660,13 +660,13 @@
                                                       <tr>
                                                          <td style="padding:0px 30px 0px 30px;line-height:28px;text-align:inherit" height="100%" valign="top" bgcolor="" role="module-content">
                                                             <div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting Visitor Insure Insurance Inc. We're here to support you every step of the way.
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">We look forward to a long and rewarding relationship with you. Thank you once again for trusting VISITOR GUARD Insurance Inc. We're here to support you every step of the way.
                                                                   </span>
                                                                </div>
                                                                <div style="font-family:inherit;text-align:inherit"><br></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Sincerely,  </span></div>
                                                                <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><br></div>
-                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">Visitor Insure</span></div>
+                                                               <div style="font-family:&quot;Open Sans&quot;,sans-serif;text-align:inherit;font-size:14px;line-height:28px"><span style="font-size:14px;font-weight:500;color:#67778f">VISITOR GUARD</span></div>
                                                                <div></div>
                                                             </div>
                                                          </td>

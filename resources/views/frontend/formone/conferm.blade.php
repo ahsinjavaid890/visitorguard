@@ -1,6 +1,9 @@
-@extends('frontend.layouts.main')
+@extends('frontend.layouts.mainguard')
 @section('content')
 <style type="text/css">
+.main-div-login{
+    margin-top: 0px !important;
+}
 .login-page{
 	text-align: center;
 }

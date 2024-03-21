@@ -1,3 +1,7 @@
+@php
+    $url = request()->segment(count(request()->segments()));
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
+@endphp
 <script id="cookieinfo" src="{{ url('cookieinfoscript.com/js/cookieinfo.min.js') }}"></script>
 <footer>
    <div class="container-fluid footer">
@@ -30,9 +34,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <h4>Contact Us</h4>
-               <p><i class="fa fa-phone"></i> +1-855-500-8999</p>
-               <p><i class="fa fa-envelope"></i> contact@lifeadvice.ca</p>
-               <p><i class="fa fa-map-marker"></i> Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6</p>
+               <p><i class="fa fa-phone"></i> {{ $settings->site_phonenumber }}</p>
+               <p><i class="fa fa-envelope"></i> {{ $settings->site_email }}</p>
+               <p><i class="fa fa-map-marker"></i> {{ $settings->site_address }}</p>
             </div>
             <div class="col-md-12 copy">
                <div class="row">

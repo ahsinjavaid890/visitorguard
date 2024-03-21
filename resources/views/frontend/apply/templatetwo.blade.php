@@ -8,7 +8,15 @@
 	$stepone = unserialize($data->steponedata);
 	$steptwo = unserialize($data->steptwodata);
 @endphp
-<link rel="stylesheet" type="text/css" href="{{ url('public/front/css/applyformtemplatetwo.css') }}">
+<style type="text/css">
+	.headlogo .navbar-dark a{
+		color: black !important;
+	}
+	.headlogo .dropdown-menu a{
+		color: white !important;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="https://lifeadvice.ca/public/front/css/applyformtemplatetwo.css">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYUTCpyRfNY8Und6oYaKi5Vkqip7OIWEU&libraries=geometry,places&v=weekly"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('public/front/css/select2.min.css')}}">
@@ -16,8 +24,8 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/tabs/applyform.css')}}">
 <script src="{{ url('public/front/js/select2.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-<script type="text/javascript" src="{{ url('public/front/tabs/js/selecttwo.js')}}"></script>
-<script src="{{ url('public/front/js/jquery.validate.min.js') }}"></script>
+<script type="text/javascript" src="https://lifeadvice.ca/public/front/tabs/js/selecttwo.js"></script>
+<script src="https://lifeadvice.ca/public/front/js/jquery.validate.min.js"></script>
 <div class="mainpageapplyform">
 	<div class="row mt-5">
 	<div class="col-md-8">
@@ -1217,7 +1225,7 @@ function displayLocation(latitude,longitude){
     );
 }
 </script>
-<script type="text/javascript" src="https://d3a39i8rhcsf8w.cloudfront.net/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="{{ url('public/front/js/jquery.mask.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {               
         $('#phonenumbermask').mask('000-000-0000');

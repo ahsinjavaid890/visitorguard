@@ -1,5 +1,5 @@
 @php
-    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
 @endphp
 <center>
    <div>

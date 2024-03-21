@@ -36,7 +36,14 @@ Route::POST('sendsecurelink', [CustomLoginController::class, 'sendsecurelink']);
 
 Route::get('securelogin/{id}', [CustomLoginController::class, 'securelogin']);
 
+Route::get('step-one/{id}', [SiteController::class, 'steponetoshow']);
+Route::POST('applystepone', [SiteController::class, 'applystepone']);
+Route::get('step-two/{id}', [SiteController::class, 'steptwotoshow']);
+Route::POST('applysteptwo', [SiteController::class, 'applysteptwo']);
 
+Route::get('step-three/{id}', [SiteController::class, 'stepthreetoshow']);
+Route::get('backonestep/{id}', [SiteController::class, 'backonestep']);
+Route::POST('completeandpurchase', [SiteController::class, 'completeandpurchase']);
 
 // Site Routes
 Route::get('/', [SiteController::class, 'index']);
@@ -188,9 +195,17 @@ Route::name('admin.')->prefix('admin')->namespace('App\Http\Controllers\Admin')-
     });
     Route::name('website.')->prefix('website')->group(function(){
         Route::get('/settings','SettingsController@appearance');
-        Route::post('/settingsupdate','SettingsController@appearance_update');
+        Route::get('/server-info','SettingsController@serverinfo');
+        Route::get('/clearcache','SettingsController@clearcache');
+        Route::POST('/clearcache','SettingsController@cacheclear');
+        Route::post('/settingsupdate','SettingsController@settingsupdate');
         Route::post('/updatelogos','SettingsController@updatelogos');
         Route::post('/updatelinks','SettingsController@updatelinks');
+        Route::get('/emailsettings','SettingsController@emailsettings');
+        Route::post('/emailsettingsupdate','SettingsController@emailsettingsupdate');
+        Route::post('/emailtemplateupdate','SettingsController@emailtemplateupdate');
+        Route::get('/userpanelsettings','SettingsController@userpanelsettings');
+        Route::post('/userpanelsettingupdate','SettingsController@userpanelsettingupdate'); 
     });
     Route::name('companies.')->prefix('companies')->group(function(){
         Route::get('/allcompanies','AdminController@allcompanies');

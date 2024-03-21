@@ -1,5 +1,5 @@
 @php
-    $settings = DB::table('site_settings')->where('smallname' , 'visitorinsure')->first();
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
 @endphp
 <center>
    <div>
@@ -200,7 +200,7 @@
                                                             <tr>
                                                                <td height="100%" valign="top" bgcolor="" role="module-content" style="padding:20px 35px 0px 36px;line-height:26px;text-align:inherit">
                                                                   <div>
-                                                                     <div style="font-family:inherit;text-align:inherit"><span style="font-family:&quot;Open Sans&quot;,sans-serif;font-size:16px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:600;letter-spacing:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;background-color:rgb(255,255,255);text-decoration-style:initial;text-decoration-color:initial;float:none;display:inline;color:#67778f">Visitor Insure</span></div>
+                                                                     <div style="font-family:inherit;text-align:inherit"><span style="font-family:&quot;Open Sans&quot;,sans-serif;font-size:16px;font-style:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-weight:600;letter-spacing:normal;text-align:start;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;background-color:rgb(255,255,255);text-decoration-style:initial;text-decoration-color:initial;float:none;display:inline;color:#67778f">VISITOR GUARD</span></div>
                                                                      <div></div>
                                                                   </div>
                                                                </td>
@@ -247,7 +247,7 @@
                                                                         <tr height="7" style="height:7px"></tr>
                                                                         <tr>
                                                                            <td align="center">
-                                                                              <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">Visitor Insure Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> Visitor Insure Inc®. All Rights Reserved.</p>
+                                                                              <p style="color:#67778f;font-size:10px;line-height:14px;margin-bottom:12px">VISITOR GUARD Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br> VISITOR GUARD Inc®. All Rights Reserved.</p>
                                                                            </td>
                                                                         </tr>
                                                                      </tbody>

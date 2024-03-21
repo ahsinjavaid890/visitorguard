@@ -85,7 +85,7 @@
                                                 <td width="600" class="m_2524544869209104962rounded" align="center" bgcolor="#DFDFE4" valign="top" style="margin:0;padding:20px 20px;border-radius:20px">
                                                    <p style="font-family:'Inter','Helvetica Neue','Helvetica',sans-serif;font-size:14px;line-height:20px;color:#9191a4;font-weight:400">Visit <a href="{{ url('') }}" style="color:#9191a4;text-decoration:none" target="_blank"><span class="il">{{ url('') }}</a><br>
                                                       <a href="" style="color:#9191a4;text-decoration:none" target="_blank">+1-855-500-8999<br>
-                                                      <span class="il">Visitor Insure Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br>
+                                                      <span class="il">VISITOR GUARD Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6<br>
                                                       © 2023 <span class="il">{{ env('APP_NAME') }}</span> - All Rights Reserved</a>
                                                    </p>
                                                 </td>

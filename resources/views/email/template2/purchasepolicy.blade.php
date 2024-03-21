@@ -1308,9 +1308,9 @@
                                 style="color: #ffffff; line-height: 170%; text-align: center; word-wrap: break-word;">
 
 
-                                <p style="font-size: 14px; line-height: 170%;">Visitor Insure Insurance Inc, 912 Isaiah
+                                <p style="font-size: 14px; line-height: 170%;">VISITOR GUARD Insurance Inc, 912 Isaiah
                                   Place, Kitchener, ON, N2E0B6
-                                  Visitor Insure Inc®. All Rights Reserved.</p>
+                                  VISITOR GUARD Inc®. All Rights Reserved.</p>
                               </div>
 
                             </td>

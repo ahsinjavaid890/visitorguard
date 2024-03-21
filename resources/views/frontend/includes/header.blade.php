@@ -6,7 +6,7 @@
    <div class="container-fluid mainhead">
       <div class="container py-2 headlogo">
          <div class="row">
-            <a href="{{ url('') }}">
+            <a style="width: 280px" href="{{ url('') }}">
                <img src="{{ url('public/images') }}/{{ $settings->header_logo }}" alt="brand">
             </a>
             <nav class="navbar navbar-expand-lg navbar-dark" id="main_navbar">

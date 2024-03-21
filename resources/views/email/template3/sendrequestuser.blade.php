@@ -1846,9 +1846,9 @@
                     <td class="es-m-p20b" align="left" style="padding:0;Margin:0;width:261px">
                      <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                        <tbody><tr>
-                        <td align="left" class="es-m-txt-c" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:21px;color:#333333;font-size:14px"> Visitor Insure Insurance Inc, 912
+                        <td align="left" class="es-m-txt-c" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;line-height:21px;color:#333333;font-size:14px"> VISITOR GUARD Insurance Inc, 912
                           Isaiah Place, Kitchener, ON,
-                          N2E0B6<br> Visitor Insure Inc®. All
+                          N2E0B6<br> VISITOR GUARD Inc®. All
                           Rights Reserved.</p></td>
                        </tr>
                      </tbody></table></td>
