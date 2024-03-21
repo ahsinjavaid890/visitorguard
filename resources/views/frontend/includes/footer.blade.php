@@ -8,7 +8,7 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-3 col-md-6">
-               <img src="{{ url('public/front/visitorguard/images/brand-foot.png') }}" alt="Visitor Guard"><br>
+               <img style="background-color: white;border-radius: 10px;" src="{{ url('public/images') }}/{{ $settings->header_logo }}" alt="Visitor Guard"><br>
                <br>
                <p>Life Insurance Insurance has been a trusted name in insurance for more than 10 years. Today, we proudly serve insurance provincewide.</p>
             </div>
