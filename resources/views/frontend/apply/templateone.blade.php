@@ -13,6 +13,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="{{ url('public/front/tabs/js/selecttwo.js')}}"></script>
 <style type="text/css">
+	.headlogo .navbar-dark a{
+		color: black !important;
+	}
+	.headlogo .dropdown-menu a{
+		color: white !important;
+	}
+</style>
+<style type="text/css">
 	.tabshead{
 		margin-top: 67px;
 	}
