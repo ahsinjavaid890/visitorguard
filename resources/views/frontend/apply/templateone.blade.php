@@ -28,12 +28,17 @@
 	.input{
 		border: 1px solid #cfd9e8 !important;
 	}
-	@media only screen and (max-width: 600px)
-	  {
-	    .select2-container{
-	    	width: 100% !important;
-	    }
-	  }
+  @media only screen and (max-width: 600px)
+  {
+    .select2-container{
+    	width: 100% !important;
+    }
+    .responsiverow{
+    	margin-left: 10px !important;
+	    margin-right: 10px !important;
+	    margin-top: 10px !important;
+    }
+  }
 </style>
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/css/tab_style.css') }}">
 <section class="tabshead">
@@ -70,7 +75,7 @@
 						</div>
 					</div>
 				</div>
-                <div class="row">
+                <div class="row responsiverow">
                     <div class="col-md-12">
 			        	<form action="{{ url('applyqoute') }}" method="post" class="f1">
 							@csrf
