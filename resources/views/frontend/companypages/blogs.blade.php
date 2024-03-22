@@ -1,4 +1,4 @@
-@extends('frontend.layouts.main')
+@extends('frontend.layouts.mainguard')
 @include('frontend.companypages.includes.mettatittle')
 @section('content')
 @include('frontend.companypages.includes.mainblog')
@@ -86,7 +86,7 @@
                             <hr>
                         </div>
                         <ul class="parent-list nav  nav-tabs d-block" role="tablist">
-                            @foreach(DB::table('blogcategories')->get() as $r)
+                            @foreach(DB::table('blogcategories')->where('website' , 'visitorguard')->get() as $r)
                                 <li class="nav-item">
                                     <a href="{{ url('category') }}/{{ $r->url }}" class="nav-link @if($loop->first) active @endif" data-toggle="tab-{{$r->id}}"  role="tab" >{{ $r->name }}</a>
                                 </li>
@@ -103,7 +103,7 @@
                  <div class="card blank-card card-responsive">
                       <div class="card-body">
                          <div class="blog-image-card">
-                            <img src="{{ url('public/images') }}/{{ $r->image }}">
+                            <img src="http://lifeadvice.ca/public/images/{{ $r->image }}">
                          </div>
                          <div class="card-content">
                             <a href="{{ url('blog') }}/{{ $r->url}}"> <h3>{{ $r->title }}</h3></a>

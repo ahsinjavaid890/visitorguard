@@ -1,4 +1,11 @@
 <style type="text/css">
+    footer{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .blog_section{
+        margin-top: 25px !important;
+    }
     .step {
         height: 100%;
         background-color: #ffff;
@@ -293,6 +300,6 @@
     </div>
     @endif
     <div class="blo-img">
-        <img src="{{ url('') }}/public/images/{{ $firstsection->main_image  }}" class="blog_img">
+        <img src="https://lifeadvice.ca/public/images/{{ $firstsection->main_image  }}" class="blog_img">
     </div>
 </div>

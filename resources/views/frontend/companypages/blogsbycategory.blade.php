@@ -1,9 +1,16 @@
-@extends('frontend.layouts.main')
+@extends('frontend.layouts.mainguard')
 @section('content')
 @php
     $firstsection = DB::table('travelpages')->where('url' , 'blogs')->first();
 @endphp
 <style type="text/css">
+footer{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .blog_section{
+        margin-top: 25px !important;
+    }
 .step {
     height: 100%;
     background-color: #ffff;
@@ -32,7 +39,7 @@
 </style>
 <div class="blog_section">
     <div class="blo-img">
-        <img src="{{ url('public/images/1950687292.png') }}" class="blog_img">
+        <img src="https://lifeadvice.ca/public/images/{{ $firstsection->main_image  }}" class="blog_img">
     </div>
 </div>
 <section class="chooses-blogs choose-us-area-five pb-70" style="background-color:#f4f7fa;">
@@ -56,7 +63,7 @@
                             <hr>
                         </div>
                         <ul class="parent-list nav  nav-tabs d-block" role="tablist">
-                            @foreach(DB::table('blogcategories')->get() as $r)
+                            @foreach(DB::table('blogcategories')->where('website' , 'visitorguard')->get() as $r)
                                 <li class="nav-item">
                                     <a class="nav-link @if($category->url == $r->url) active @endif" data-toggle="tab-{{$r->id}}" role="tab"href="{{ url('category') }}/{{ $r->url }}">{{ $r->name }}</a>
                                 </li>
