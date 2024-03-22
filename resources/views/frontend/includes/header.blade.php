@@ -2,11 +2,40 @@
     $url = request()->segment(count(request()->segments()));
     $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
 @endphp
+<style type="text/css">
+   @media screen and (max-width: 991px)
+   {
+      .navbar-dark .navbar-toggler {
+       background: #425E80;
+      }
+      .newlogowidth{
+         width: 200px !important;
+      }
+      .headlogo .navbar-dark{
+             right: 10px;
+            top: 30px;
+      }
+      .headlogo .navbar-collapse {
+          position: absolute;
+          width: 260px;
+          top: 55px;
+          text-align: left;
+          right: 0px;
+          background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+          padding: 15px;
+          box-shadow: 0px 0px 4px #666;
+          z-index: 100000;
+      }
+   }
+.newlogowidth{
+      width: 270px;
+   }
+</style>
 <header>
    <div class="container-fluid mainhead">
       <div class="container py-2 headlogo">
          <div class="row">
-            <a style="width: 280px" href="{{ url('') }}">
+            <a class="newlogowidth" href="{{ url('') }}">
                <img src="{{ url('public/images') }}/{{ $settings->header_logo }}" alt="brand">
             </a>
             <nav class="navbar navbar-expand-lg navbar-dark" id="main_navbar">
