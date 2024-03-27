@@ -15,10 +15,10 @@
             <div class="col-lg-3 col-md-6">
                <h4>Get Insurance</h4>
                <ul>
-                  <li><a href="/quote/tab_info.php?product_id=1">Travel Insurance</a></li>
-                  <li><a href="/quote/tab_info.php?product_id=2">Super Visa Canada</a></li>
-                  <li><a href="/quote/tab_info.php?product_id=3">Visitor Insurance</a></li>
-                  <li><a href="/quote/tab_info.php?product_id=3">Student Insurance</a></li>
+                  <li><a href="{{ url('travel-insurance') }}">Travel Insurance</a></li>
+                  <li><a href="{{ url('super-visa-insurance') }}">Super Visa Canada</a></li>
+                  <li><a href="{{ url('visitor-insurance') }}">Visitor Insurance</a></li>
+                  <li><a href="{{ url('student-insurance') }}">Student Insurance</a></li>
                </ul>
             </div>
             <div class="col-lg-3 col-md-6">
