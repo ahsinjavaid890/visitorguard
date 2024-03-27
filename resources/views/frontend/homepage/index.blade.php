@@ -14,6 +14,15 @@
 </div>
 @endsection
 @section('secondnav')
+<style>
+   @media screen and (max-width: 991px)
+{
+   .headlogo .navbar-dark {
+    right: 0px;
+    top: 5px;
+}
+}
+</style>
 <div class="row">
    <div id="demo" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
