@@ -655,7 +655,7 @@ background: #F9F9F9; box-shadow: 0px 0px 1px 0px #CCC inset; border-radius: 3px;
     <div class="col-md-6" style="background:#F9F9F9;">
     <h3 style="border-bottom:1px solid #ccc;margin: 0;font-size: 18px;font-weight: bold;">Buy Online</h3>
     <p style="font-weight: bold;">In three simple steps you can purchase your policy, easily and securely, online.</p>
-    <p><input type="checkbox" name="agree" required="" style="height: auto;margin: 0;"> I give permission to LifeAdvice.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
+    <p><input type="checkbox" name="agree" required="" style="height: auto;margin: 0;"> I give permission to visitorguard.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. visitorguard values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
         <p></p>
     <p><button type="submit" class="submit-btn" style="font-weight: bold;padding: 7px 20px;box-shadow: none;border: 1px solid #999;font-size: 16px;display: block;color: #FFF;background: #2b3481;border-radius: 5px;margin-top: 2px; margin-bottom:10px;"><i class="fa fa-shopping-cart"></i> Buy Now</button></p>
     </div>

@@ -555,7 +555,7 @@
 				<br>
 				<i class="fa fa-map-marker"></i> Visitor Guard Insurance Inc, 912 Isaiah Place, Kitchener, ON, N2E0B6
 				<br>
-				<i class="fa fa-envelope"></i> contact@lifeadvice.ca
+				<i class="fa fa-envelope"></i> contact@visitorguard.ca
 				<br>
 				<i class="fa fa-phone"></i> Tollfree: 855-500-8999
 				</p> 

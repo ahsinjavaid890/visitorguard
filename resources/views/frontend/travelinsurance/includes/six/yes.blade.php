@@ -328,7 +328,7 @@ if ($request->sendemail == 'yes') {
         $emailview = 'email.template'.$temp.'.quoteemail';
         Mail::send($emailview, array('quoteNumber'=>$quoteNumber,'request'=>$request,'mailitem'=>$mailitem), function($message) use ($request,$subject) {
                    $message->to($request->savers_email)->subject($subject);
-                   $message->from('quote@lifeadvice.ca','VISITOR GUARD');
+                   $message->from('quote@visitorguard.ca','VISITOR GUARD');
                 });
     }
 }

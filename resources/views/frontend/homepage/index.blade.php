@@ -371,10 +371,10 @@ $('.clients').slick({
 {
   "@context": "https://schema.org",
   "@type": " Corporation ",
-  "name": "Lifeadvice Inc",
+  "name": "Visitor Guard Inc",
   "alternateName": "Insurance Company",
-  "url": "https://lifeadvice.ca/",
-  "logo": "https://lifeadvice.ca/images/brand.png",
+  "url": "https://visitorguard.ca/",
+  "logo": "https://visitorguard.ca/public/images/1563651586.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Visitor Guard Insurance Inc,912 Isaiah Place,",

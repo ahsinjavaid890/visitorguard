@@ -483,7 +483,7 @@ if (isset($_GET['departure_date'])) {
     //     $subject = "Your Quote - $product_name";
     //     Mail::send('email.quoteemail', array('quoteNumber'=>$quoteNumber,'request'=>$request,'mailitem'=>$mailitem), function($message) use ($request,$subject) {
     //                $message->to($request->savers_email)->subject($subject);
-    //                $message->from('quote@lifeadvice.ca','LIFEADVICE');
+    //                $message->from('quote@visitorguard.ca','LIFEADVICE');
     //             });
     // }
 }

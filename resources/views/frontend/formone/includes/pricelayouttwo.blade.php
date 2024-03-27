@@ -635,7 +635,7 @@ $buynow_url = "tab_buy.php?email=$request->email&coverage=".$sum_insured."&trave
     <div class="col-md-6" style="background:#F9F9F9;">
     <h3 style="border-bottom:1px solid #ccc;margin: 0;font-size: 18px;font-weight: bold;">Buy Online</h3>
     <p style="font-weight: bold;">In three simple steps you can purchase your policy, easily and securely, online.</p>
-    <p><input type="checkbox" name="agree" style="height: auto;margin: 0;"> I give permission to LifeAdvice.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
+    <p><input type="checkbox" name="agree" style="height: auto;margin: 0;"> I give permission to visitorguard.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. Visitor Guard values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
         <p></p>
     <p>
         <form method="post" action="{{ url('apply') }}">

@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="images/icon.png">
     <title>Life Insurance Ontario – Get Tips, Online Quotes for Life Insurance</title>
     <meta name="description"
-        content="Lifeadvice, a leading life insurance company in Ontario offers a range of life insurance plans and policies to help you protect you and your family.Get instant quotes." />
+        content="Visitor Guard, a leading life insurance company in Ontario offers a range of life insurance plans and policies to help you protect you and your family.Get instant quotes." />
     <link rel="canonical" href="{{ url('') }}" />
     <link href="{{ url('public/front/visitorguard/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

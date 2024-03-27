@@ -525,7 +525,7 @@ $broker = $request->broker;
 <div class="col-md-6 col-xs-12 contact-details" style="background:#F9F9F9; padding-right: 15px; padding-left: 15px;">
 <h3 style="border-bottom: 1px solid #ccc; margin: 0;font-size: 19px;font-weight: bold;color: #000;">Buy Online</h3>
 <p style="    font-weight: bold;">In three simple steps you can purchase your policy, easily and securely, online.</p>
-<p style="margin-bottom: 30px;"> <input type="checkbox" name="agree" required="" style="height: auto;margin: 0;"> I give permission to LifeAdvice.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. LifeAdvice values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
+<p style="margin-bottom: 30px;"> <input type="checkbox" name="agree" required="" style="height: auto;margin: 0;"> I give permission to visitorguard.ca to transfer my quote information and contact details to <?php echo $comp_name;?> in order to complete the purchase of travel insurance. Visitor Guard values your privacy. For details, see our <a href="/">Privacy Policy</a></p>
 <p></p>
 <p style=" "><button type="submit" class="btn submit-btn" style="color: #FFF;
     border-radius: 5px;
