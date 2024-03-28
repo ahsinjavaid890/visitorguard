@@ -267,4 +267,5 @@ if($request->familyplan_temp == 'yes' && $family_plan == 'no'){
             }
         });
     });
+    @include('frontend.travelinsurance.includes.sendquoteemailscript')
 </script>

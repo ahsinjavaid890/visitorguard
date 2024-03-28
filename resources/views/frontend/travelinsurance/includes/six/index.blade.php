@@ -260,5 +260,6 @@ $(document).ready(function () {
         }
     });
 });
+@include('frontend.travelinsurance.includes.sendquoteemailscript')
 </script>
 </div>

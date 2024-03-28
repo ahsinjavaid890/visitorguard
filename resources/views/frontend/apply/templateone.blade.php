@@ -16,7 +16,7 @@
 		color: black;
 	}
 	.tabshead{
-		margin-top: 100px;
+/*		margin-top: 100px;*/
 	}
 	.wrapper-dropdown{
 		top: 22px !important;
@@ -43,7 +43,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/css/tab_style.css') }}">
 <section class="tabshead">
 	<div class="container">
-		<div class="row tabs" style="padding-top: 20px;">
+		<div class="row tabs">
 			<div class="col-md-4 col-xs-4 text-center information_qoutes">
 				<button onclick="history.back(-2);" class="btn">
 					<i class="fa fa-user"></i> Information

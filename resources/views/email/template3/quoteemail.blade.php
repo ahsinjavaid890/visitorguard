@@ -1,11 +1,6 @@
-<?php
-
-$arrr = $mailitem;
-function object_to_array($object)
-{
-   return (array) $object;
-}
-?>
+@php
+    $settings = DB::table('site_settings')->where('smallname' , 'visitorguard')->first();
+@endphp
 <center>
    <div>
       <table bgcolor="#f4f7fa" border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -36,7 +31,7 @@ function object_to_array($object)
                                                       <table border="0" cellpadding="0" cellspacing="0" role="module" style="table-layout:fixed" width="100%">
                                                          <tbody>
                                                             <tr>
-                                                               <td align="left" style="font-size:6px;line-height:10px;padding:12px 0px 14px 15px" valign="top"><img alt="" border="0" height="41" src="https://lifeadvice.ca/public/images/118135255.png" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px" width="200" class="CToWUd" data-bit="iit"></td>
+                                                               <td align="left" style="font-size:6px;line-height:10px;padding:12px 0px 14px 15px" valign="top"><img alt="" border="0" height="41" src="{{ url('public/images') }}/{{ $settings->header_logo }}" style="display:block;color:#000000;text-decoration:none;font-family:Helvetica,arial,sans-serif;font-size:16px" width="200" class="CToWUd" data-bit="iit"></td>
                                                             </tr>
                                                          </tbody>
                                                       </table>
@@ -79,57 +74,116 @@ function object_to_array($object)
                                                              Lowest Price on following deductibles
                                                          </h2>
                                                      </div>
-                                                      
-                                                      <?php
-                                                        $ded = ['0','250','500','1000'];
-                                                        for($i=0;$i<count($ded);$i++){?>
-                                                                <div style="width:100%;border-bottom:1px solid #ccc">
-                                                                    <h3 style="font:bold 26px Arial,Helvetica,sans-serif;color:#f00;text-align:center;line-height:50px">
-                                                                        $<?=$ded[$i]?> Deductible
-                                                                    </h3>
-                                                                </div>
-                                                            <?php
-                                                            $counter=0;
-                                                            foreach ($arrr as $key){
-                                                            $key=object_to_array($key);
-                                                            //print_r($key);
-                                                                if($key['deductible']==$ded[$i] && $counter<2){
-                                                                    $counter++;
-                                                            //$key['logo'];   
-                                                               ?>
-                                                                <div style="width:100%; border-bottom:1px solid #ccc;padding:10px 0;">
-                                                                    <div style="width:25%; display:inline-block;height: 47px; color: darkred;float: left">
-                                                                        <h4 style="font: bold 18px Arial,Helvetica,sans-serif; color: #333; text-align: center; display: table-cell; vertical-align: middle; height: 51px; width: 195px; line-height: 42px;">$
-                                                                   <?php
-                                                                    $check_total = isset($key['check_total']) ? $key['check_total'] : '';
-                                                                   if($check_total=="1") {
-                                                                 $totalPrice1=round($key['price']+$key['flatrate_price']);
-                                                                                         if($key['sales_tax']!="" && $key['sales_tax']!='9% quebec')
-                                                                              {
-                                                                                $totalPrice1=$totalPrice1+($totalPrice1*8)/100;
-                                                                              }
-                                                                              elseif($key['sales_tax']!="" && $key['sales_tax']=='9% quebec')
-                                                                              {
-                                                                                $totalPrice1=$totalPrice1+($totalPrice1*9)/100;
-                                                                              }
-                                                                    ?>
-                                                          <?= sprintf('%.2f',$totalPrice1,2);  } else { ?>  <?= sprintf('%.2f',round($key['price'],2));} ?></h4>
-                                                                    </div>
-                                                                    <div style="width:30%; display:inline-block;text-align:center;float: left">
-                                                                        <img src="https://lifeadvice.ca/public/images/<? echo $key['logo']?>" style="max-width: 100%;max-height:72px" >
-                                                                    </div>
-                                                               <div style="width:30%; display:inline-block;text-align:center;float: left; padding-top:15px;">
-                                                                   <h4 style="font:bold 18px Arial, Helvetica, sans-serif; color:#333; text-align:center;display: block;vertical-align: middle;margin:0;">$<?=$key['sum_insured']?></h4> Benefits Maximum
-                                                               </div>
-                                                               <div style="width:10%; display:inline-block;text-align:center;float: left; padding-top:15px;">
-                                                                   <a href="{{ url('getquote') }}/<?php echo $quoteNumber; ?>" class="buynow-btn" class="btn btn-lg btn-danger" name="buynow" style="padding:10px;float:right;min-width:100%;background: #2b3481;color:#fff;width:100%;border-radius:5px;font-weight:bold;text-decoration: none;">Buy Now
-                                                                        </a>
-                                                               </div>
-                                                                    <div style="clear:both;"></div>
-                                                                </div>
-                                                                <?php }
-                                                            }
-                                                        } ?>
+                                                     <div style="width:100%;border-bottom:1px solid #ccc">
+                                                        <h3 style="font:bold 26px Arial,Helvetica,sans-serif;color:#f00;text-align:center;line-height:50px">
+                                                            ${{ $deductibleArray1000[0]['deductible_email'] }} Deductible
+                                                        </h3>
+                                                    </div>
+                                                    @foreach($deductibleArray1000 as $keyzero => $zerodeductible)
+                                                   <div style="width:100%; border-bottom:1px solid #ccc;padding:10px 0;">
+                                                      <div style="width:25%; display:inline-block;height: 47px; color: darkred;float: left">
+                                                         <h4 style="font: bold 18px Arial,Helvetica,sans-serif; color: #333; text-align: center; display: table-cell; vertical-align: middle; height: 51px; width: 195px; line-height: 42px;">${{ number_format($zerodeductible['price_email'],2) }}</h4>
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left">
+                                                         <img src="{{ $zerodeductible['logo_email'] }}" style="max-width: 100%;max-height:72px" >
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <h4 style="font:bold 18px Arial, Helvetica, sans-serif; color:#333; text-align:center;display: block;vertical-align: middle;margin:0;">${{ $zerodeductible['sum_insured_email'] }}</h4>
+                                                         Benefits Maximum
+                                                      </div>
+                                                      <div style="width:10%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <a href="{{ url('getquote') }}/<?php echo $quoteNumber; ?>" class="buynow-btn" class="btn btn-lg btn-danger" name="buynow" style="padding:10px;float:right;min-width:100%;background: #2b3481;color:#fff;width:100%;border-radius:5px;font-weight:bold;text-decoration: none;">Buy Now
+                                                         </a>
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                    @endforeach
+
+                                                   <div style="width:100%;border-bottom:1px solid #ccc">
+                                                        <h3 style="font:bold 26px Arial,Helvetica,sans-serif;color:#f00;text-align:center;line-height:50px">
+                                                            ${{ $deductibleArray500[0]['deductible_email'] }} Deductible
+                                                        </h3>
+                                                    </div>
+                                                    @foreach($deductibleArray500 as $keyzero => $zerodeductible)
+                                                   <div style="width:100%; border-bottom:1px solid #ccc;padding:10px 0;">
+                                                      <div style="width:25%; display:inline-block;height: 47px; color: darkred;float: left">
+                                                         <h4 style="font: bold 18px Arial,Helvetica,sans-serif; color: #333; text-align: center; display: table-cell; vertical-align: middle; height: 51px; width: 195px; line-height: 42px;">${{ number_format($zerodeductible['price_email'],2) }}</h4>
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left">
+                                                         <img src="{{ $zerodeductible['logo_email'] }}" style="max-width: 100%;max-height:72px" >
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <h4 style="font:bold 18px Arial, Helvetica, sans-serif; color:#333; text-align:center;display: block;vertical-align: middle;margin:0;">${{ $zerodeductible['sum_insured_email'] }}</h4>
+                                                         Benefits Maximum
+                                                      </div>
+                                                      <div style="width:10%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <a href="{{ url('getquote') }}/<?php echo $quoteNumber; ?>" class="buynow-btn" class="btn btn-lg btn-danger" name="buynow" style="padding:10px;float:right;min-width:100%;background: #2b3481;color:#fff;width:100%;border-radius:5px;font-weight:bold;text-decoration: none;">Buy Now
+                                                         </a>
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                    @endforeach
+
+                                                    
+
+
+
+                                                    <div style="width:100%;border-bottom:1px solid #ccc">
+                                                        <h3 style="font:bold 26px Arial,Helvetica,sans-serif;color:#f00;text-align:center;line-height:50px">
+                                                            ${{ $deductibleArray250[0]['deductible_email'] }} Deductible
+                                                        </h3>
+                                                    </div>
+                                                    @foreach($deductibleArray250 as $keyzero => $zerodeductible)
+                                                   <div style="width:100%; border-bottom:1px solid #ccc;padding:10px 0;">
+                                                      <div style="width:25%; display:inline-block;height: 47px; color: darkred;float: left">
+                                                         <h4 style="font: bold 18px Arial,Helvetica,sans-serif; color: #333; text-align: center; display: table-cell; vertical-align: middle; height: 51px; width: 195px; line-height: 42px;">${{ number_format($zerodeductible['price_email'],2) }}</h4>
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left">
+                                                         <img src="{{ $zerodeductible['logo_email'] }}" style="max-width: 100%;max-height:72px" >
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <h4 style="font:bold 18px Arial, Helvetica, sans-serif; color:#333; text-align:center;display: block;vertical-align: middle;margin:0;">${{ $zerodeductible['sum_insured_email'] }}</h4>
+                                                         Benefits Maximum
+                                                      </div>
+                                                      <div style="width:10%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <a href="{{ url('getquote') }}/<?php echo $quoteNumber; ?>" class="buynow-btn" class="btn btn-lg btn-danger" name="buynow" style="padding:10px;float:right;min-width:100%;background: #2b3481;color:#fff;width:100%;border-radius:5px;font-weight:bold;text-decoration: none;">Buy Now
+                                                         </a>
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                    @endforeach
+                                                    <div style="width:100%;border-bottom:1px solid #ccc">
+                                                        <h3 style="font:bold 26px Arial,Helvetica,sans-serif;color:#f00;text-align:center;line-height:50px">
+                                                            ${{ $deductibleArray0[0]['deductible_email'] }} Deductible
+                                                        </h3>
+                                                    </div>
+                                                    @foreach($deductibleArray0 as $keyzero => $zerodeductible)
+                                                   <div style="width:100%; border-bottom:1px solid #ccc;padding:10px 0;">
+                                                      <div style="width:25%; display:inline-block;height: 47px; color: darkred;float: left">
+                                                         <h4 style="font: bold 18px Arial,Helvetica,sans-serif; color: #333; text-align: center; display: table-cell; vertical-align: middle; height: 51px; width: 195px; line-height: 42px;">${{ number_format($zerodeductible['price_email'],2) }}</h4>
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left">
+                                                         <img src="{{ $zerodeductible['logo_email'] }}" style="max-width: 100%;max-height:72px" >
+                                                      </div>
+                                                      <div style="width:30%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <h4 style="font:bold 18px Arial, Helvetica, sans-serif; color:#333; text-align:center;display: block;vertical-align: middle;margin:0;">${{ $zerodeductible['sum_insured_email'] }}</h4>
+                                                         Benefits Maximum
+                                                      </div>
+                                                      <div style="width:10%; display:inline-block;text-align:center;float: left; padding-top:15px;">
+                                                         <a href="{{ url('getquote') }}/<?php echo $quoteNumber; ?>" class="buynow-btn" class="btn btn-lg btn-danger" name="buynow" style="padding:10px;float:right;min-width:100%;background: #2b3481;color:#fff;width:100%;border-radius:5px;font-weight:bold;text-decoration: none;">Buy Now
+                                                         </a>
+                                                      </div>
+                                                      <div style="clear:both;"></div>
+                                                   </div>
+                                                    @endforeach
+
+                                                    
+
+
+                                                    
+
+
+
                                                         <table role="module" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed">
                                                          <tbody>
                                                             <tr>
@@ -227,7 +281,7 @@ function object_to_array($object)
                                                                               </tr>
                                                                               <tr>
                                                                                  <td>
-                                                                                    <a href="" style="color:#1b8fe4;font-weight:700;font-size:16px;text-decoration:none;font-family:'Open Sans',sans-serif!important;line-height:24px" target="_blank" data-saferedirecturl="">
+                                                                                    <a href="{{ url('contactus') }}" style="color:#1b8fe4;font-weight:700;font-size:16px;text-decoration:none;font-family:'Open Sans',sans-serif!important;line-height:24px" target="_blank" data-saferedirecturl="">
                                                                                     Contact US<span style="margin-left:10px"><img width="17" style="width:17px" src="https://lifeadvice.ca/public/email/arrow.png" class="CToWUd" data-bit="iit"></span>
                                                                                     </a>
                                                                                  </td>

@@ -285,6 +285,7 @@ $(function () {
     function showdetails(id) {
         $('.dh-toggle-show-hide-' + id).slideToggle();
     }
+    @include('frontend.travelinsurance.includes.sendquoteemailscript')
 </script>
 
 </div>

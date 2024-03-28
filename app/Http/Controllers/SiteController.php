@@ -36,6 +36,16 @@ class SiteController extends Controller
     {
         return view('frontend.homepage.index');
     }
+    public function sendquoteemail(Request $request)
+    {
+        $subject = "Your Quote of ".$request->product_name. ' | Quote Number '.$request->quoteNumber;
+        $temp = DB::table('site_settings')->where('smallname', 'lifeadvice')->first()->email_template;
+        $emailview = 'email.template'.$temp.'.quoteemail';
+        Mail::send($emailview, array('quoteNumber'=>$request->quoteNumber,'deductibleArray0'=>$request->deductibleArray0,'deductibleArray250'=>$request->deductibleArray250,'deductibleArray500'=>$request->deductibleArray500,'deductibleArray1000'=>$request->deductibleArray1000), function($message) use ($request,$subject) {
+           $message->to($request->email)->subject($subject);
+           $message->from('quote@visitorguard.ca','VISITOR GUARD');
+        });
+    }
     public function logout()
     {
         Auth::logout();
@@ -369,34 +379,37 @@ class SiteController extends Controller
         $ded = DB::table('wp_dh_insurance_plans_deductibles')->where('plan_id', $plan->id)->groupby('deductible1')->get();
         $query = "CAST(`sum_insured` AS DECIMAL)";
         $sum = DB::table('wp_dh_insurance_plans_rates')->where('plan_id', $plan->id)->groupby('sum_insured')->orderByRaw($query)->get();
-        if ($data->stylish_price_layout == 'layout_1') {
+
+        $visitorguardlayout = wp_dh_products::where('url', $data->url)->where('website' , 'visitorguard')->first();
+
+        if ($visitorguardlayout->stylish_price_layout == 'layout_1') {
             $returnHTML =  view('frontend.travelinsurance.includes.one.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_2') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_2') {
             $returnHTML =  view('frontend.travelinsurance.includes.two.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_3') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_3') {
             $returnHTML =  view('frontend.travelinsurance.includes.three.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_4') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_4') {
             $returnHTML =  view('frontend.travelinsurance.includes.four.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_5') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_5') {
             $returnHTML =  view('frontend.travelinsurance.includes.five.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_6') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_6') {
             $returnHTML =  view('frontend.travelinsurance.includes.six.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_7') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_7') {
             $returnHTML =  view('frontend.travelinsurance.includes.seven.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_8') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_8') {
             $returnHTML =  view('frontend.travelinsurance.includes.eight.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_9') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_9') {
             $returnHTML =  view('frontend.travelinsurance.includes.nine.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
-        if ($data->stylish_price_layout == 'layout_10') {
+        if ($visitorguardlayout->stylish_price_layout == 'layout_10') {
             $returnHTML =  view('frontend.travelinsurance.includes.ten.index')->with(array('quoteNumber' => $quoteNumber, 'data' => $data, 'fields' => $fields, 'ded' => $ded, 'sum' => $sum, 'request' => $request))->render();
         }
         if (isset($request->sendemail)) {

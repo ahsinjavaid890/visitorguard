@@ -653,4 +653,5 @@ ul.common-btn li {
          });
          // $("#results_search").html(divList);
      });
+    @include('frontend.travelinsurance.includes.sendquoteemailscript')
 </script>
