@@ -12,8 +12,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="{{ url('public/front/tabs/js/selecttwo.js')}}"></script>
 <style type="text/css">
+	.headlogo .navbar-dark {
+	    position: absolute;
+	    right: 5% !important;
+	    top: 20px;
+	}
+	.mainhead{
+		background-color: white;
+	}
+	.headlogo{
+		position: unset !important;
+		background-color: white !important;
+	}
 	.headlogo .navbar-dark a{
 		color: black;
+	}
+	.dropdown-item{
+		color: white !important;
 	}
 	.tabshead{
 /*		margin-top: 100px;*/
@@ -41,7 +56,7 @@
   }
 </style>
 <link rel="stylesheet" type="text/css" href="{{ url('public/front/css/tab_style.css') }}">
-<section class="tabshead">
+<!-- <section class="tabshead">
 	<div class="container">
 		<div class="row tabs">
 			<div class="col-md-4 col-xs-4 text-center information_qoutes">
@@ -61,7 +76,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 		<div class="top-content">
             <div class="container">
             	<div class="" style="max-width: 100%;margin: auto;">
@@ -295,7 +310,7 @@
 										<div class="col-md-6 mt-3">
 											<div class="custom-form-control positionrelative">
 						                    	<label class="selectlabeldateofbirth">Coverage Ammount</label>
-						                        <input readonly class="input" type="text" placeholder=" " value="{{ $request->coverage }}" id="tripduration" name="coverage_ammount">
+						                        <input readonly class="input" type="text" placeholder=" " value="${{ $request->coverage }}" id="tripduration" name="coverage_ammount">
 						                    </div>
 										</div>
 										<div class="col-md-6 mt-3">

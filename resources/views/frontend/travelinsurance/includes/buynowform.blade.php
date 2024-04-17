@@ -44,7 +44,7 @@
                 <p>
                     <input type="checkbox" name="agree" required=""> 
                     I give permission to visitorguard.ca to transfer my quote information and contact details to {{ $comp_name }} in order to complete the purchase of travel insurance. Visitor Guard values your privacy. For details, see our 
-                    <a target="_blank" href="{{ url('privacypolicy') }}">Privacy Policy</a>
+                    <a target="_blank" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                 </p>
                 <button type="submit" class="submit-btn"><i class="fa fa-shopping-cart"></i> Buy Now</button>
             </div>
